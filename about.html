@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About — AVEOL</title>
+    <meta name="description"
+        content="Learn about AVEOL — the AI agent automation company built for B2B companies, agencies, and enterprise teams." />
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <!-- ── Open Graph ── -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AVEOL" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:url" content="https://aveol.ai/about.html" />
+    <meta property="og:title" content="About AVEOL — AI Agent Automation for Every Business" />
+    <meta property="og:description"
+        content="Learn about AVEOL's mission, team, and approach to custom AI agent automation for B2B companies of every industry." />
+    <meta property="og:image" content="https://aveol.ai/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- ── Twitter / X Card ── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="About AVEOL — AI Agent Automation" />
+    <meta name="twitter:description"
+        content="Learn about AVEOL's mission to automate workflows for every type of business with custom AI agents." />
+    <meta name="twitter:image" content="https://aveol.ai/og-image.png" />
+    <meta property="og:description"
+        content="AVEOL is building custom AI agents to free B2B companies from repetitive operational work. Meet the founder and learn our mission." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="favicon.png" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="AVEOL.css">
+</head>
+
+<body>
+
+    <div class="noise"></div>
+    <div class="mouse-glow" id="glow"></div>
+    <canvas id="particles"></canvas>
+
+    <nav id="navbar">
+        <a href="index.html" class="logo">AVEOL</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="index.html#services">Services</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <a href="index.html#waitlist" class="nav-cta">Join Waitlist</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">&#9776;</button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" id="closeMenu">&#x2715;</button>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="index.html#waitlist" class="btn-primary" style="margin-top:24px;">Join Waitlist</a>
+    </div>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="page-hero-content reveal">
+            <div class="section-label">// About</div>
+            <h1 class="page-hero-title">We're building intelligence<br /><span class="gold-text">that works for
+                    you</span></h1>
+            <p class="page-hero-sub">AVEOL is built for one reason: businesses waste thousands of hours and dollars on
+                tasks that AI should be handling — and we're here to fix that.</p>
+        </div>
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </section>
+
+    <!-- MISSION -->
+    <section class="section">
+        <div class="section-inner about-split">
+            <div class="about-text reveal">
+                <div class="section-label">// Our Mission</div>
+                <h2 class="section-title">Built to free<br /><span class="gold-text">human potential</span></h2>
+                <p class="section-text" style="margin-bottom:20px;">
+                    Every B2B company, agency, and growing enterprise we've spoken to shares the same problem:
+                    high-value teams are buried under admin, outreach, follow-ups, and operational tasks that drain
+                    productivity and revenue.
+                </p>
+                <p class="section-text">
+                    At AVEOL, we're building custom AI agents to give that capacity back. Our mission is to make
+                    enterprise-grade intelligent automation accessible to every ambitious B2B business — becoming a true
+                    operational partner, not just a vendor.
+                </p>
+            </div>
+            <div class="about-visual reveal">
+                <div class="visual-box">
+                    <div class="visual-item">
+                        <span class="vi-label">Hours to be saved / week</span>
+                        <span class="vi-val gold-text">40+</span>
+                    </div>
+                    <div class="visual-item">
+                        <span class="vi-label">Targeted task automations</span>
+                        <span class="vi-val gold-text">500+</span>
+                    </div>
+                    <div class="visual-item">
+                        <span class="vi-label">Agents deployed</span>
+                        <span class="vi-val gold-text">Custom</span>
+                    </div>
+                    <div class="visual-item">
+                        <span class="vi-label">Uptime guarantee</span>
+                        <span class="vi-val gold-text">99.9%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="section section-dark">
+        <div class="section-inner">
+            <div class="reveal section-label">// What We Stand For</div>
+            <h2 class="reveal section-title">Our <span class="gold-text">principles</span></h2>
+            <div class="values-grid">
+                <div class="value-card reveal">
+                    <div class="card-icon">🎯</div>
+                    <h3>Outcomes, Not Output</h3>
+                    <p>We don't measure success in features deployed. We measure it in hours saved, revenue generated,
+                        and problems permanently solved.</p>
+                </div>
+                <div class="value-card reveal">
+                    <div class="card-icon">🤝</div>
+                    <h3>Partners, Not Vendors</h3>
+                    <p>We embed ourselves into your business. Your growth is our growth. We succeed when you scale.</p>
+                </div>
+                <div class="value-card reveal">
+                    <div class="card-icon">⚙️</div>
+                    <h3>Precision Over Speed</h3>
+                    <p>Every agent we design is rigorously validated before deployment. We'd rather do it right than do
+                        it fast — no shortcuts on quality.</p>
+                </div>
+                <div class="value-card reveal">
+                    <div class="card-icon">🔍</div>
+                    <h3>Full Transparency</h3>
+                    <p>You always know what your agents are doing. No black boxes — full visibility, full control,
+                        always.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO WE SERVE -->
+    <section class="section">
+        <div class="section-inner">
+            <div class="reveal section-label">// Who We Serve</div>
+            <h2 class="reveal section-title">Built for<br /><span class="gold-text">every type of business</span>
+            </h2>
+            <div class="audience-grid">
+                <div class="audience-card reveal">
+                    <div class="aud-icon">🏢</div>
+                    <h3>Agencies</h3>
+                    <p>Deliver more to more clients without hiring more people. Scale service delivery with AI-powered
+                        workflows and reporting.</p>
+                </div>
+                <div class="audience-card reveal">
+                    <div class="aud-icon">💼</div>
+                    <h3>Consultancies</h3>
+                    <p>Automate client communication, reporting, and admin so your consultants spend time on billable
+                        work, not operational overhead.</p>
+                </div>
+                <div class="audience-card reveal">
+                    <div class="aud-icon">🚀</div>
+                    <h3>Startups & Scale-ups</h3>
+                    <p>Move at speed without burning out. Automate the noise so your team ships product and closes deals
+                        faster.</p>
+                </div>
+                <div class="audience-card reveal">
+                    <div class="aud-icon">🧑‍💻</div>
+                    <h3>SaaS Companies</h3>
+                    <p>Automate onboarding, churn detection, support workflows, and expansion outreach — without growing
+                        your ops headcount.</p>
+                </div>
+                <div class="audience-card reveal">
+                    <div class="aud-icon">🛒</div>
+                    <h3>E-commerce & Retail</h3>
+                    <p>Automate inventory alerts, order communications, supplier follow-ups, and customer feedback
+                        workflows at scale.</p>
+                </div>
+                <div class="audience-card reveal">
+                    <div class="aud-icon">🏥</div>
+                    <h3>Healthcare & Clinics</h3>
+                    <p>Streamline patient communications, appointment workflows, referral follow-ups, and administrative
+                        reporting automatically.</p>
+                </div>
+                <div class="audience-card reveal">
+                    <div class="aud-icon">🏦</div>
+                    <h3>Financial Services</h3>
+                    <p>Automate client data collection, compliance reporting, follow-up sequences, and document
+                        generation with full audit trails.</p>
+                </div>
+                <div class="audience-card reveal">
+                    <div class="aud-icon">🏗️</div>
+                    <h3>Real Estate & Property</h3>
+                    <p>Automate lead qualification, listing updates, client follow-ups, and contract management across
+                        your entire portfolio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOUNDER -->
+    <section class="section section-dark">
+        <div class="section-inner">
+            <div class="reveal section-label">// The Founder</div>
+            <div class="founder-wrap reveal">
+                <div class="founder-photo-wrap">
+                    <img src="founder1.jpg" alt="" class="founder-photo" />
+                    <div class="founder-photo-ring"></div>
+                </div>
+                <div class="founder-text">
+                    <h2 class="founder-name">Aditya Kumar</h2>
+                    <p class="founder-role">Founder &amp; CEO, AVEOL</p>
+                    <div class="founder-bar"></div>
+                    <p class="founder-bio">
+                        I started AVEOL because I kept seeing the same problem in B2B after B2B company — high-calibre
+                        teams spending their best hours on tasks that should be fully automated. Companies paying for
+                        headcount to do repetitive work. Agencies unable to scale delivery without burning out their
+                        people.
+                    </p>
+                    <p class="founder-bio">
+                        I'm building AVEOL to change that. Our vision is custom AI agent systems that slot directly into
+                        a company's existing operations, handle everything repetitive, and give teams the capacity to
+                        focus on high-value work and revenue growth. We're early, we're building fast, and we're looking
+                        for the right B2B partners to grow with us from day one.
+                    </p>
+                    <div class="founder-socials">
+                        <a href="#" class="founder-social-link">𝕏 Twitter</a>
+                        <a href="https://www.linkedin.com/in/aditya-kumar-518580319" target="_blank"
+                            rel="noopener noreferrer" class="founder-social-link">in LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+
+    <section class="section section-cta">
+        <div class="section-inner text-center reveal">
+            <h2 class="section-title">Ready to see it<br /><span class="gold-text">in action?</span></h2>
+            <p class="section-text" style="margin: 0 auto 40px;">
+                We're onboarding our first wave of early partners. Get on the list and be first when AVEOL launches.
+            </p>
+            <a href="index.html#waitlist" class="btn-primary" style="display:inline-block; padding: 16px 44px;">Join the
+                Waitlist →</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-logo">AVEOL</div>
+            <p class="footer-tag">Autonomous Intelligence. Infinite Scale.</p>
+            <div class="footer-links">
+                <a href="about.html">About</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy</a>
+            </div>
+            <p class="footer-copy">© 2026 AVEOL — All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="AVEOL.js"></script>
+</body>
+
+</html>

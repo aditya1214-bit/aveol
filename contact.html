@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact — AVEOL</title>
+    <meta name="description"
+        content="Get in touch with AVEOL to book a free audit and learn how AI agent automation can transform your business." />
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <!-- ── Open Graph ── -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AVEOL" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:url" content="https://aveol.ai/contact.html" />
+    <meta property="og:title" content="Contact AVEOL — Book a Free Automation Audit" />
+    <meta property="og:description"
+        content="Talk to AVEOL about automating your business workflows. Book a free audit and get a custom AI agent strategy for your company." />
+    <meta property="og:image" content="https://aveol.ai/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- ── Twitter / X Card ── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Contact AVEOL — Free Automation Audit" />
+    <meta name="twitter:description"
+        content="Book a free audit to learn how AI agents can transform your business operations." />
+    <meta name="twitter:image" content="https://aveol.ai/og-image.png" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="AVEOL.css">
+</head>
+
+<body>
+
+    <div class="noise"></div>
+    <div class="mouse-glow" id="glow"></div>
+    <canvas id="particles"></canvas>
+
+    <nav id="navbar">
+        <a href="index.html" class="logo">AVEOL</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="index.html#services">Services</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+        <a href="index.html#waitlist" class="nav-cta">Join Waitlist</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">&#9776;</button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" id="closeMenu">&#x2715;</button>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="index.html#waitlist" class="btn-primary" style="margin-top:24px;">Join Waitlist</a>
+    </div>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="page-hero-content reveal">
+            <div class="section-label">// Contact</div>
+            <h1 class="page-hero-title">Let's map your<br /><span class="gold-text">automation</span></h1>
+            <p class="page-hero-sub">Book a free 20-minute audit. We'll show you exactly what we'd automate in your
+                business — no commitment required.</p>
+        </div>
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </section>
+
+    <!-- CONTACT LAYOUT -->
+    <section class="section">
+        <div class="section-inner contact-layout">
+
+            <!-- FORM SIDE -->
+            <div class="contact-form-wrap reveal">
+                <h2 class="section-title" style="font-size:32px; margin-bottom:8px;">Send us a message</h2>
+                <p style="color: var(--text-muted); font-size:14px; margin-bottom:36px;">We typically reply within 4
+                    business hours.</p>
+
+                <form class="contact-form-full" id="contactFormFull" name="contact-audit" data-netlify="true"
+                    netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="contact-audit" />
+                    <input type="text" name="bot-field" style="display:none" />
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" name="name" placeholder="John Smith" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Work Email</label>
+                            <input type="email" name="email" placeholder="john@company.com" required />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Company / Brand</label>
+                            <input type="text" name="company" placeholder="Your Company" />
+                        </div>
+                        <div class="form-group">
+                            <label>My role...</label>
+                            <select name="role">
+                                <option value="" disabled selected>Select your role</option>
+                                <option>Business Owner / CEO</option>
+                                <option>Agency Owner</option>
+                                <option>Startup / Scale-up Founder</option>
+                                <option>Operations / Process Manager</option>
+                                <option>Enterprise Decision Maker</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>What business processes do you want to automate?</label>
+                        <textarea name="message"
+                            placeholder="Describe your company's current workflow challenges or operational processes you want to automate (e.g. lead gen, client onboarding, reporting, outreach)..."
+                            rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Monthly Revenue Range (optional)</label>
+                        <select name="revenue">
+                            <option value="" disabled selected>Select a range</option>
+                            <option>Under $10K</option>
+                            <option>$10K – $50K</option>
+                            <option>$50K – $200K</option>
+                            <option>$200K – $1M</option>
+                            <option>$1M+</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary full-width" id="contactSubmitBtn">Book My Free Audit
+                        →</button>
+                    <p style="font-size:12px; color:var(--text-dim); margin-top:12px; text-align:center;">🔒 All
+                        conversations are private and confidential.</p>
+                </form>
+            </div>
+
+            <!-- INFO SIDE -->
+            <div class="contact-info reveal">
+                <div class="contact-info-box">
+                    <h3>What happens next?</h3>
+                    <div class="next-steps">
+                        <div class="next-step">
+                            <div class="next-num">01</div>
+                            <div>
+                                <strong>We review your submission</strong>
+                                <p>Our team reads every submission personally and identifies your key automation
+                                    opportunities.</p>
+                            </div>
+                        </div>
+                        <div class="next-step">
+                            <div class="next-num">02</div>
+                            <div>
+                                <strong>We schedule a 20-min call</strong>
+                                <p>We'll reach out within 24 hours to set up a free audit call at your convenience.</p>
+                            </div>
+                        </div>
+                        <div class="next-step">
+                            <div class="next-num">03</div>
+                            <div>
+                                <strong>You get an automation roadmap</strong>
+                                <p>We present a tailored plan showing exactly how AVEOL would transform your
+                                    operations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-reach">
+                    <h4>Prefer to reach out directly?</h4>
+                    <div class="reach-item">
+                        <span>📧</span>
+                        <a href="mailto:hello@AVEOL.ai">hello@AVEOL.ai</a>
+                    </div>
+                    <div class="reach-item">
+                        <span>🐦</span>
+                        <a href="#">@AVEOL_ai</a>
+                    </div>
+                    <div class="reach-item">
+                        <span>💼</span>
+                        <a href="#">linkedin.com/company/AVEOL</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-logo">AVEOL</div>
+            <p class="footer-tag">Autonomous Intelligence. Infinite Scale.</p>
+            <div class="footer-links">
+                <a href="about.html">About</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p class="footer-copy">© 2026 AVEOL — All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="AVEOL.js"></script>
+</body>
+
+</html>
