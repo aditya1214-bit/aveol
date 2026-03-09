@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AVEOL — Autonomous Intelligence. Infinite Scale.</title>
+  <meta name="description"
+    content="AVEOL is building custom AI agent automation systems for companies of all sizes. Join the waitlist for early access." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <!-- ── Open Graph ── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="AVEOL" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:url" content="https://aveol.ai/" />
+  <meta property="og:title" content="AVEOL — Autonomous Intelligence. Infinite Scale." />
+  <meta property="og:description"
+    content="Custom AI agent automation for every type of business. Automate workflows, outreach, and operations at scale. Join the waitlist." />
+  <meta property="og:image" content="https://aveol.ai/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="AVEOL — AI Agent Automation" />
+
+  <!-- ── Twitter / X Card ── -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@AVEOLai" />
+  <meta name="twitter:title" content="AVEOL — Autonomous Intelligence. Infinite Scale." />
+  <meta name="twitter:description"
+    content="Custom AI agents for your business workflows. Join the waitlist for founders' pricing." />
+  <meta name="twitter:image" content="https://aveol.ai/og-image.png" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <!-- ── Schema Markup ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "AVEOL",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "description": "Custom AI agent automation for companies of all sizes. Automate workflows, outreach, and operations.",
+    "url": "https://aveol.ai",
+    "offers": {
+      "@type": "Offer",
+      "price": "799",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="AVEOL.css">
+</head>
+
+<body>
+
+  <!-- INTRO SPLASH -->
+  <div class="intro" id="intro">
+    <div class="intro-inner">
+      <div class="intro-logo">AVEOL</div>
+      <div class="intro-bar"></div>
+    </div>
+  </div>
+
+  <!-- NOISE -->
+  <div class="noise"></div>
+
+  <!-- MOUSE GLOW -->
+  <div class="mouse-glow" id="glow"></div>
+
+  <!-- PARTICLES -->
+  <canvas id="particles"></canvas>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="index.html" class="logo">AVEOL</a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">&#9776;</button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="close-menu" id="closeMenu">&#x2715;</button>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="index.html#services">Services</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+    <a href="#waitlist" class="btn-primary" style="margin-top:24px;">Join Waitlist</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-content reveal">
+      <div class="hero-badge">AI Agent Automation · Launching Soon</div>
+      <h1 class="hero-title">
+        Your Business.<br />
+        On <span class="gold-text">Autopilot.</span>
+      </h1>
+      <p class="hero-sub">
+        AVEOL is building custom AI agents that handle your company’s workflows,<br />
+        outreach, and operations — built for
+        <span class="rotating-word gold-text" id="rotatingIndustry">Any Business</span>.
+      </p>
+
+      <!-- WAITLIST FORM -->
+      <form class="waitlist-form reveal" id="waitlistForm" name="waitlist-hero" data-netlify="true"
+        netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="waitlist-hero" />
+        <input type="text" name="bot-field" style="display:none" />
+        <input type="email" id="waitlistEmail" name="email" placeholder="Enter your work email" required />
+        <button type="submit" class="btn-primary">Reserve Early Access →</button>
+      </form>
+      <p class="waitlist-note reveal">No credit card needed. Early members get founders’ pricing.</p>
+      <div class="waitlist-social-proof reveal">
+        <span class="wsp-dot"></span>
+        <span id="waitlistCount">0</span> businesses already on the waitlist
+      </div>
+
+      <div class="hero-tags reveal">
+        <span>🏢 Agencies</span>
+        <span>💼 Consultancies</span>
+        <span>🚀 Startups</span>
+        <span>🧑‍💻 SaaS Companies</span>
+        <span>🏥 Healthcare</span>
+        <span>🏦 Financial Services</span>
+        <span>🛒 E-commerce</span>
+        <span>🏗️ Real Estate</span>
+      </div>
+    </div>
+
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>AI Agents</span><span class="dot">◆</span>
+      <span>Lead Generation</span><span class="dot">◆</span>
+      <span>Workflow Automation</span><span class="dot">◆</span>
+      <span>Multi-Agent Systems</span><span class="dot">◆</span>
+      <span>24/7 Operations</span><span class="dot">◆</span>
+      <span>Client Outreach</span><span class="dot">◆</span>
+      <span>Decision Intelligence</span><span class="dot">◆</span>
+      <span>AI Agents</span><span class="dot">◆</span>
+      <span>Lead Generation</span><span class="dot">◆</span>
+      <span>Workflow Automation</span><span class="dot">◆</span>
+      <span>Multi-Agent Systems</span><span class="dot">◆</span>
+      <span>24/7 Operations</span><span class="dot">◆</span>
+      <span>Client Outreach</span><span class="dot">◆</span>
+      <span>Decision Intelligence</span><span class="dot">◆</span>
+    </div>
+  </div>
+
+  <!-- TRUST BAR -->
+  <section class="section section-trust">
+    <div class="section-inner">
+      <p class="trust-label reveal">Works for every industry, every business size</p>
+      <div class="trust-row reveal">
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          </div>
+          <div class="trust-text">Deploy in days, not months</div>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+          </div>
+          <div class="trust-text">Always-on, always learning</div>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <div class="trust-icon">
+             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18v-5M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18v-5M12 13h0"></path></svg>
+          </div>
+          <div class="trust-text">Custom-built for your workflow</div>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <div class="trust-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+          </div>
+          <div class="trust-text">Enterprise-grade security</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section section-dark" id="how">
+    <div class="section-inner">
+      <div class="reveal section-label">// How It Works</div>
+      <h2 class="reveal section-title">Automation in<br /><span class="gold-text">three simple steps</span></h2>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-num">01</div>
+          <h3>We Audit Your Operations</h3>
+          <p>We map your current workflow and identify every manual, repetitive task that AI should be handling.</p>
+        </div>
+        <div class="step-arrow reveal">→</div>
+        <div class="step reveal">
+          <div class="step-num">02</div>
+          <h3>We Build Your Agents</h3>
+          <p>Our team engineers a custom AI agent system precisely tailored to your business — built from scratch, not
+            templates.</p>
+        </div>
+        <div class="step-arrow reveal">→</div>
+        <div class="step reveal">
+          <div class="step-num">03</div>
+          <h3>You Scale Effortlessly</h3>
+          <p>Your agents handle the work 24/7. You get full visibility, reporting, and control — without lifting a
+            finger.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <div class="section-inner">
+      <div class="reveal section-label">// Our Services</div>
+      <h2 class="reveal section-title">What AVEOL will<br /><span class="gold-text">automate for your business</span>
+      </h2>
+      <div class="cards">
+        <div class="card reveal">
+          <div class="card-img-wrap">
+            <img src="card_ai_agent.png" alt="AI Agent Deployment" class="card-photo" loading="lazy" />
+          </div>
+          <h3>AI Agent Deployment</h3>
+          <p>Custom agents that autonomously execute complex business tasks around the clock — no babysitting required.
+          </p>
+          <div class="card-line"></div>
+        </div>
+        <div class="card reveal">
+          <div class="card-img-wrap">
+            <img src="card_outreach.png" alt="Outreach & Lead Gen" class="card-photo" loading="lazy" />
+          </div>
+          <h3>Outreach & Lead Gen</h3>
+          <p>Agents that find prospects, craft personalized messages, follow up, and book meetings on your calendar.</p>
+          <div class="card-line"></div>
+        </div>
+        <div class="card reveal">
+          <div class="card-img-wrap">
+            <img src="card_workflow.png" alt="Workflow Automation" class="card-photo" loading="lazy" />
+          </div>
+          <h3>Workflow Automation</h3>
+          <p>Eliminate every repetitive internal task — from onboarding to reporting — with intelligent, connected
+            pipelines.</p>
+          <div class="card-line"></div>
+        </div>
+        <div class="card reveal">
+          <div class="card-img-wrap">
+            <img src="card_multi_agent.png" alt="Multi-Agent Orchestration" class="card-photo" loading="lazy" />
+          </div>
+          <h3>Multi-Agent Orchestration</h3>
+          <p>Deploy a team of specialized agents that collaborate, delegate, and solve problems as one single
+            intelligence layer.</p>
+          <div class="card-line"></div>
+        </div>
+        <div class="card reveal">
+          <div class="card-img-wrap">
+            <img src="card_dashboards.png" alt="Intelligence Dashboards" class="card-photo" loading="lazy" />
+          </div>
+          <h3>Intelligence Dashboards</h3>
+          <p>Real-time insights on agent performance, tasks completed, time saved, and ROI — always at your fingertips.
+          </p>
+          <div class="card-line"></div>
+        </div>
+        <div class="card reveal">
+          <div class="card-img-wrap">
+            <img src="card_integration.png" alt="Full System Integration" class="card-photo" loading="lazy" />
+          </div>
+          <h3>Full System Integration</h3>
+          <p>Plug your CRM, Slack, email, and any tool you use into one seamless, automated ecosystem.</p>
+          <div class="card-line"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section class="section section-dark" id="comparison">
+    <div class="section-inner">
+      <div class="text-center reveal">
+        <div class="section-label">// Why AI Agents</div>
+        <h2 class="section-title">Manual operations vs.<br /><span class="gold-text">AVEOL AI Agents</span></h2>
+        <p class="section-text">Every hour your team spends on repetitive tasks is an hour not spent growing the
+          business.</p>
+      </div>
+
+      <div class="comparison-table reveal">
+        <div class="comp-header">
+          <div class="comp-feature-col"></div>
+          <div class="comp-col comp-col-bad">
+            <div class="comp-col-title">❌ Manual Operations</div>
+          </div>
+          <div class="comp-col comp-col-good">
+            <div class="comp-col-title">✅ AVEOL AI Agents</div>
+          </div>
+        </div>
+
+        <div class="comp-row">
+          <div class="comp-feature">Working hours</div>
+          <div class="comp-val bad">8–10 hrs/day, weekdays only</div>
+          <div class="comp-val good">24/7, never stops</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-feature">Scalability</div>
+          <div class="comp-val bad">Hire more people to do more</div>
+          <div class="comp-val good">Handles 10× volume instantly</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-feature">Error rate</div>
+          <div class="comp-val bad">Human error, inconsistency</div>
+          <div class="comp-val good">Zero variance, every time</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-feature">Speed of execution</div>
+          <div class="comp-val bad">Minutes to hours per task</div>
+          <div class="comp-val good">Seconds, in parallel</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-feature">Cost as you grow</div>
+          <div class="comp-val bad">Grows with headcount</div>
+          <div class="comp-val good">Near-zero marginal cost</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-feature">Team focus</div>
+          <div class="comp-val bad">Buried in admin and ops</div>
+          <div class="comp-val good">Free for strategy & growth</div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-feature">Setup time</div>
+          <div class="comp-val bad">Months of hiring & training</div>
+          <div class="comp-val good">Deployed in days</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- STATS -->
+
+
+  <section class="section section-dark">
+    <div class="section-inner">
+      <div class="stats-grid reveal">
+        <div class="big-stat">
+          <div class="big-num">10<span>x</span></div>
+          <div class="big-label">Faster Operations</div>
+          <p>Agents execute at machine speed — no delays, no lunch breaks.</p>
+        </div>
+        <div class="big-stat">
+          <div class="big-num">80<span>%</span></div>
+          <div class="big-label">Cost Reduction Potential</div>
+          <p>Replace expensive manual effort with scalable, intelligent systems — projected across repetitive workflows.
+          </p>
+        </div>
+        <div class="big-stat">
+          <div class="big-num">24<span>/7</span></div>
+          <div class="big-label">Always Working</div>
+          <p>AI agents never sleep, never take days off, never miss a task — your operations don't stop.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI CALCULATOR -->
+  <section class="section" id="roi-calculator">
+    <div class="section-inner">
+      <div class="text-center reveal">
+        <div class="section-label">// ROI Estimator</div>
+        <h2 class="section-title">What could automation<br /><span class="gold-text">save your business?</span></h2>
+        <p class="section-text">Adjust the sliders below to estimate how much time and money AI agent automation could
+          save your team each year.</p>
+      </div>
+
+      <div class="roi-wrap reveal">
+        <div class="roi-inputs">
+          <div class="roi-input-group">
+            <div class="roi-label-row">
+              <label>People doing repetitive manual work</label>
+              <span class="roi-val-badge" id="teamSizeVal">5</span>
+            </div>
+            <input type="range" class="roi-slider" id="teamSize" min="1" max="50" value="5" />
+            <div class="roi-range-labels"><span>1</span><span>50</span></div>
+          </div>
+
+          <div class="roi-input-group">
+            <div class="roi-label-row">
+              <label>Hours/week per person on manual tasks</label>
+              <span class="roi-val-badge" id="hoursVal">15</span>
+            </div>
+            <input type="range" class="roi-slider" id="hoursPerWeek" min="1" max="40" value="15" />
+            <div class="roi-range-labels"><span>1h</span><span>40h</span></div>
+          </div>
+
+          <div class="roi-input-group">
+            <div class="roi-label-row">
+              <label>Average hourly cost per employee (INR)</label>
+              <span class="roi-val-badge" id="hourlyRateVal">₹800</span>
+            </div>
+            <input type="range" class="roi-slider" id="hourlyRate" min="200" max="3000" value="800" step="100" />
+            <div class="roi-range-labels"><span>₹200</span><span>₹3,000</span></div>
+          </div>
+
+          <div class="roi-input-group">
+            <div class="roi-label-row">
+              <label>Estimated automation coverage</label>
+              <span class="roi-val-badge" id="coverageVal">70%</span>
+            </div>
+            <input type="range" class="roi-slider" id="coverage" min="30" max="90" value="70" step="5" />
+            <div class="roi-range-labels"><span>30%</span><span>90%</span></div>
+          </div>
+        </div>
+
+        <div class="roi-results">
+          <div class="roi-result-card">
+            <div class="roi-result-num" id="weeklyHours">52<span>h</span></div>
+            <div class="roi-result-label">Hours saved per week</div>
+          </div>
+          <div class="roi-divider"></div>
+          <div class="roi-result-card">
+            <div class="roi-result-num" id="annualSaving">$95K</div>
+            <div class="roi-result-label">Estimated annual saving</div>
+          </div>
+          <div class="roi-divider"></div>
+          <div class="roi-result-card">
+            <div class="roi-result-num" id="fteEquiv">1.3<span>x</span></div>
+            <div class="roi-result-label">FTE headcount equivalent</div>
+          </div>
+          <p class="roi-disclaimer">*Estimates based on projected automation efficiency. Actual results will vary by
+            workflow complexity.</p>
+          <a href="#waitlist" class="btn-primary full-width"
+            style="margin-top:28px; text-align:center; display:block;">Get My Custom Estimate →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAUNCH ROADMAP -->
+  <section class="section" id="roadmap">
+    <div class="section-inner">
+      <div class="text-center reveal">
+        <div class="section-label">// Our Journey</div>
+        <h2 class="section-title">Where we are on the<br /><span class="gold-text">path to launch</span></h2>
+        <p class="section-text">We're building this in public. Here's exactly where AVEOL stands and where we're going.
+        </p>
+      </div>
+
+      <div class="roadmap reveal">
+        <div class="roadmap-line"></div>
+
+        <div class="roadmap-phase done">
+          <div class="roadmap-dot"></div>
+          <div class="roadmap-content">
+            <div class="roadmap-phase-label done-label">✓ Completed</div>
+            <h3>Product Vision & Architecture</h3>
+            <p>Core system design, tech stack decisions, and automation framework built. Agent orchestration layer
+              defined.</p>
+            <div class="roadmap-date">Q4 2025</div>
+          </div>
+        </div>
+
+        <div class="roadmap-phase active">
+          <div class="roadmap-dot"></div>
+          <div class="roadmap-content">
+            <div class="roadmap-phase-label active-label">← You are here</div>
+            <h3>Waitlist & Early Access</h3>
+            <p>Building our founding customer base. First 100 businesses on the waitlist receive lifetime founders'
+              pricing and priority onboarding.</p>
+            <div class="roadmap-date">Q1 2026 — Now</div>
+          </div>
+        </div>
+
+        <div class="roadmap-phase upcoming">
+          <div class="roadmap-dot"></div>
+          <div class="roadmap-content">
+            <div class="roadmap-phase-label upcoming-label">Coming soon</div>
+            <h3>Private Beta</h3>
+            <p>Onboarding select waitlist members. Custom AI agents deployed for founding clients across 3–5 pilot
+              workflows per business.</p>
+            <div class="roadmap-date">Q2 2026</div>
+          </div>
+        </div>
+
+        <div class="roadmap-phase upcoming">
+          <div class="roadmap-dot"></div>
+          <div class="roadmap-content">
+            <div class="roadmap-phase-label upcoming-label">Coming soon</div>
+            <h3>Public Launch</h3>
+            <p>Full product launch. All business types onboarded. Self-serve dashboard, full agent marketplace, and
+              enterprise integrations available.</p>
+            <div class="roadmap-date">Q3 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOME FAQ -->
+
+
+  <section class="section" id="faq">
+    <div class="section-inner">
+      <div class="reveal section-label">// FAQ</div>
+      <h2 class="reveal section-title">Questions we<br /><span class="gold-text">get asked most</span></h2>
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <div class="faq-q">What exactly is an AI agent?</div>
+          <div class="faq-a">An AI agent goes beyond answering questions — it takes actions. It can send emails, update
+            your CRM, book meetings, generate reports, and run entire workflows autonomously, without you lifting a
+            finger.</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">When is AVEOL launching?</div>
+          <div class="faq-a">We're currently in active development and onboarding our first wave of early partners.
+            Waitlist members will be the first to know our launch date and get priority access.</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">Do I need any technical knowledge?</div>
+          <div class="faq-a">Zero. You describe what you want automated, our team will build and deploy it for you. No
+            code, no setup, no technical team required on your side.</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">Is this for my type of business?</div>
+          <div class="faq-a">If your business has repetitive workflows, manual outreach, operational overhead, or
+            reporting tasks — yes. AVEOL is being built to work for companies of all sizes and industries: agencies,
+            consultancies, SaaS, e-commerce, healthcare, finance, real estate, logistics, and more. If humans are doing
+            work that should be automated, we can help.</div>
+        </div>
+        <div class="faq-item reveal">
+          <div class="faq-q">What do I get by joining the waitlist?</div>
+          <div class="faq-a">Priority access before public launch, founders' pricing locked in forever, and early input
+            into what we build. Waitlist spots are limited.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAITLIST CTA -->
+  <section class="section section-cta" id="waitlist">
+    <div class="section-inner text-center">
+      <div class="reveal section-label">// Early Access</div>
+      <h2 class="reveal section-title">Be among the<br /><span class="gold-text">first to automate</span></h2>
+      <p class="reveal section-text">
+        We're building AVEOL for a select group of early partners. Join the waitlist now and lock in priority access
+        with an exclusive founders' rate.
+      </p>
+      <form class="waitlist-form-lg reveal" id="waitlistFormLg" name="waitlist-section" data-netlify="true"
+        netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="waitlist-section" />
+        <input type="text" name="bot-field" style="display:none" />
+        <input type="text" name="name" placeholder="Your Full Name" required />
+        <input type="email" name="email" placeholder="Work Email Address" required />
+        <select name="role">
+          <option value="" disabled selected>What best describes your company?</option>
+          <option>Business Owner / CEO</option>
+          <option>Agency Owner</option>
+          <option>Startup / Scale-up Founder</option>
+          <option>Operations / Process Manager</option>
+          <option>Enterprise Decision Maker</option>
+          <option>Other</option>
+        </select>
+        <button type="submit" class="btn-primary full-width" id="reserveBtn">Reserve My Spot →</button>
+      </form>
+      <p class="waitlist-note" style="margin-top:16px;">🔒 Your data stays private. No spam, ever.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">AVEOL</div>
+      <p class="footer-tag">Autonomous Intelligence. Infinite Scale.</p>
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+      <p class="footer-copy">© 2026 AVEOL — All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script src="AVEOL.js"></script>
+</body>
+
+</html>
