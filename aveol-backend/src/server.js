@@ -1,7 +1,3 @@
-// ── Override DNS to use Google (8.8.8.8) — fixes ISP-level SRV block for MongoDB Atlas ──
-const dns = require('dns');
-dns.setServers(['8.8.8.8', '8.8.4.4', '1.1.1.1']);
-
 require('dotenv').config();
 const app = require('./app');
 const connectDB = require('./config/database');
