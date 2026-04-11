@@ -123,15 +123,18 @@ const sendAuditReportEmail = async (client, auditResponse, pdfPath) => {
     });
   }
 
-  await transporter.sendMail({
-    from: `"${process.env.EMAIL_FROM_NAME}" <${process.env.EMAIL_FROM_ADDRESS}>`,
-    to: client.email,
-    subject: `Your AVEOL AI Audit is Ready — Score: ${analysis.auditScore}/100 🤖`,
-    html: wrapEmail(body),
-    attachments,
-  });
-
-  logger.info(`Audit report email sent to ${client.email}`);
+  try {
+    await transporter.sendMail({
+      from: `"${process.env.EMAIL_FROM_NAME}" <${process.env.EMAIL_FROM_ADDRESS}>`,
+      to: client.email,
+      subject: `Your AVEOL AI Audit is Ready — Score: ${analysis.auditScore}/100 🤖`,
+      html: wrapEmail(body),
+      attachments,
+    });
+    logger.info(`Audit report email sent to ${client.email}`);
+  } catch (err) {
+    logger.error(`Failed to send audit email to ${client.email}: ${err.message}`);
+  }
 };
 
 // ── Follow-up Email 1 (Day 3) ─────────────────────────────────────────────────
@@ -155,14 +158,17 @@ const sendFollowUp1Email = async (client) => {
     <p class="p" style="color:#888; font-size:13px;">If the timing isn't right, no worries — just let us know.</p>
   `;
 
-  await transporter.sendMail({
-    from: `"${process.env.EMAIL_FROM_NAME}" <${process.env.EMAIL_FROM_ADDRESS}>`,
-    to: client.email,
-    subject: `Quick question about your automation audit, ${client.name.split(' ')[0]}`,
-    html: wrapEmail(body),
-  });
-
-  logger.info(`Follow-up 1 sent to ${client.email}`);
+  try {
+    await transporter.sendMail({
+      from: `"${process.env.EMAIL_FROM_NAME}" <${process.env.EMAIL_FROM_ADDRESS}>`,
+      to: client.email,
+      subject: `Quick question about your automation audit, ${client.name.split(' ')[0]}`,
+      html: wrapEmail(body),
+    });
+    logger.info(`Follow-up 1 sent to ${client.email}`);
+  } catch (err) {
+    logger.error(`Failed to send follow-up 1 email to ${client.email}: ${err.message}`);
+  }
 };
 
 // ── Follow-up Email 2 (Day 7) ─────────────────────────────────────────────────
@@ -186,14 +192,17 @@ const sendFollowUp2Email = async (client) => {
     <p class="p" style="color:#888; font-size:13px;">Not interested? No problem. We won't reach out again.</p>
   `;
 
-  await transporter.sendMail({
-    from: `"${process.env.EMAIL_FROM_NAME}" <${process.env.EMAIL_FROM_ADDRESS}>`,
-    to: client.email,
-    subject: `Founding client spots are filling up — ${client.companyName}`,
-    html: wrapEmail(body),
-  });
-
-  logger.info(`Follow-up 2 sent to ${client.email}`);
+  try {
+    await transporter.sendMail({
+      from: `"${process.env.EMAIL_FROM_NAME}" <${process.env.EMAIL_FROM_ADDRESS}>`,
+      to: client.email,
+      subject: `Founding client spots are filling up — ${client.companyName}`,
+      html: wrapEmail(body),
+    });
+    logger.info(`Follow-up 2 sent to ${client.email}`);
+  } catch (err) {
+    logger.error(`Failed to send follow-up 2 email to ${client.email}: ${err.message}`);
+  }
 };
 
 // ── Admin Notification Email ──────────────────────────────────────────────────
@@ -226,12 +235,17 @@ const sendAdminNotification = async (client, auditResponse, type = 'new_lead') =
     <p style="font-size:13px; color:#888;">Login to the admin dashboard to view full details and update lead status.</p>
   `;
 
-  await transporter.sendMail({
-    from: `"${process.env.EMAIL_FROM_NAME}" <${process.env.EMAIL_FROM_ADDRESS}>`,
-    to: process.env.ADMIN_EMAIL,
-    subject: subjects[type] || subjects.new_lead,
-    html: wrapEmail(body),
-  });
+  try {
+    await transporter.sendMail({
+      from: `"${process.env.EMAIL_FROM_NAME}" <${process.env.EMAIL_FROM_ADDRESS}>`,
+      to: process.env.ADMIN_EMAIL,
+      subject: subjects[type] || subjects.new_lead,
+      html: wrapEmail(body),
+    });
+    logger.info(`Admin notification sent for ${client.email}`);
+  } catch (err) {
+    logger.error(`Failed to send admin notification for ${client.email}: ${err.message}`);
+  }
 };
 
 module.exports = {

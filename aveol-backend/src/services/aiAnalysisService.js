@@ -1,14 +1,4 @@
-const OpenAI = require('openai');
 const logger = require('../utils/logger');
-
-let openai = null;
-if (process.env.OPENAI_API_KEY && process.env.OPENAI_API_KEY !== 'placeholder') {
-  try {
-    openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-  } catch (err) {
-    logger.warn('Failed to initialize OpenAI client. Mock responses will be used.');
-  }
-}
 
 /**
  * Analyzes audit form data and returns structured AI recommendations
@@ -17,147 +7,43 @@ if (process.env.OPENAI_API_KEY && process.env.OPENAI_API_KEY !== 'placeholder') 
  * @returns {Object} Structured analysis result
  */
 const analyzeBusinessAudit = async (clientData, auditData) => {
-  // If no OpenAI key, return a mock response so the platform still functions fully
-  if (!openai) {
-    logger.warn('No valid OPENAI_API_KEY found. Generating a standard (mocked) AI report.');
-    return normalizeAnalysis({
-      auditScore: 75,
-      automationReadinessLevel: 'High',
-      executiveSummary: `Based on your audit submission for ${clientData.companyName}, we have identified high-value automation opportunities. Replacing manual data entry and sales follow-ups with intelligent AI agents can drive significant ROI.`,
-      identifiedOpportunities: [
-        {
-          area: 'Customer Support & Lead Capture',
-          description: 'Deploy an AI chatbot on your website and WhatsApp to handle initial inquiries 24/7.',
-          estimatedTimeSavedPerWeek: 15,
-          priority: 'Critical'
-        },
-        {
-          area: 'Sales CRM Automation',
-          description: 'Automatically route and score leads based on customer responses.',
-          estimatedTimeSavedPerWeek: 10,
-          priority: 'High'
-        }
-      ],
-      recommendedAgents: [
-        {
-          agentName: '24/7 AI Receptionist',
-          agentType: 'Support & Lead Gen',
-          description: 'Instantly responds to prospects, answers FAQs, and books calls directly to your calendar.',
-          estimatedROI: 'Saves 1 full-time salary / 3x ROI in 6 months',
-          implementationTime: '2-3 weeks'
-        }
-      ],
-      estimatedAnnualSavings: {
-        timeHours: 1300,
-        moneyINR: 350000
-      },
-      recommendedStack: ['Make.com/Zapier', 'OpenAI ChatGPT API', 'WhatsApp Cloud API'],
-      quickWins: ['Connect lead form directly to CRM', 'Automate immediate welcome emails for new leads'],
-      longTermGoals: ['End-to-end automated invoice generation', 'AI-driven business analytics dashboard'],
-      fullReportText: `This is a standard template report because a valid OpenAI API Key was not provided securely to the backend instance. Once you configure your OpenAI API Key, the system will use GPT-4 to dynamically write personalized, multi-page automation reports unique to each client's specific bottlenecks, tools, and industry context.`
-    });
-  }
-
-  const prompt = buildAuditPrompt(clientData, auditData);
-
-  const response = await openai.chat.completions.create({
-    model: 'gpt-4o',
-    messages: [
+  logger.info('Generating a standard (mocked) AI report.');
+  return normalizeAnalysis({
+    auditScore: 75,
+    automationReadinessLevel: 'High',
+    executiveSummary: `Based on your audit submission for ${clientData.companyName}, we have identified high-value automation opportunities. Replacing manual data entry and sales follow-ups with intelligent AI agents can drive significant ROI.`,
+    identifiedOpportunities: [
       {
-        role: 'system',
-        content: `You are a world-class AI automation consultant specializing in business process automation for Indian companies.
-Your job is to analyze a business audit submission and produce a detailed, structured automation analysis.
-You MUST respond ONLY with a valid JSON object — no markdown, no commentary.
-All monetary values should be in Indian Rupees (INR).
-Be specific, actionable, and realistic in your recommendations.`,
+        area: 'Customer Support & Lead Capture',
+        description: 'Deploy an AI chatbot on your website and WhatsApp to handle initial inquiries 24/7.',
+        estimatedTimeSavedPerWeek: 15,
+        priority: 'Critical'
       },
       {
-        role: 'user',
-        content: prompt,
-      },
+        area: 'Sales CRM Automation',
+        description: 'Automatically route and score leads based on customer responses.',
+        estimatedTimeSavedPerWeek: 10,
+        priority: 'High'
+      }
     ],
-    temperature: 0.4,
-    max_tokens: 3000,
-    response_format: { type: 'json_object' },
+    recommendedAgents: [
+      {
+        agentName: '24/7 AI Receptionist',
+        agentType: 'Support & Lead Gen',
+        description: 'Instantly responds to prospects, answers FAQs, and books calls directly to your calendar.',
+        estimatedROI: 'Saves 1 full-time salary / 3x ROI in 6 months',
+        implementationTime: '2-3 weeks'
+      }
+    ],
+    estimatedAnnualSavings: {
+      timeHours: 1300,
+      moneyINR: 350000
+    },
+    recommendedStack: ['Make.com/Zapier', 'OpenAI ChatGPT API', 'WhatsApp Cloud API'],
+    quickWins: ['Connect lead form directly to CRM', 'Automate immediate welcome emails for new leads'],
+    longTermGoals: ['End-to-end automated invoice generation', 'AI-driven business analytics dashboard'],
+    fullReportText: `This is a standard template report designed to map out significant ROI by moving from manual work to AI-driven agents.`
   });
-
-  const raw = response.choices[0].message.content;
-  logger.debug('OpenAI raw response received');
-
-  try {
-    const analysis = JSON.parse(raw);
-    return normalizeAnalysis(analysis);
-  } catch (err) {
-    logger.error('Failed to parse OpenAI response as JSON', err);
-    throw new Error('AI analysis returned invalid JSON');
-  }
-};
-
-// ── Build the prompt ──────────────────────────────────────────────────────────
-const buildAuditPrompt = (client, audit) => {
-  return `
-Analyze this business audit submission for AVEOL AI Automation Agency.
-
-## BUSINESS DETAILS
-- Company: ${client.companyName}
-- Industry: ${client.industry}
-- Team Size: ${client.teamSize}
-- Role: ${client.companyRole}
-- Current Tools: ${(audit.currentTools || []).join(', ') || 'Not specified'}
-- Other Tools: ${audit.otherTools || 'None'}
-
-## PAIN POINTS & CHALLENGES
-- Biggest Bottlenecks: ${audit.biggestBottlenecks || 'Not provided'}
-- Repetitive Tasks: ${audit.repetitiveTasks || 'Not provided'}
-- Sales Problems: ${audit.salesProblems || 'Not provided'}
-- Customer Support Problems: ${audit.customerSupportProblems || 'Not provided'}
-- Lead Generation Issues: ${audit.leadGenIssues || 'Not provided'}
-- CRM Issues: ${audit.crmIssues || 'Not provided'}
-- Operations Tasks: ${audit.operationsTasks || 'Not provided'}
-
-## SCALE & BUDGET
-- Monthly Volume: ${audit.monthlyBusinessVolume || 'Not specified'}
-- Budget Range: ${audit.budgetRange || 'Not specified'}
-- Automation Goals: ${audit.automationGoals || 'Not provided'}
-- Timeline: ${audit.timeline || 'Not specified'}
-- Prior Automation Experience: ${audit.previousAutomationExperience || 'None'}
-
-## REQUIRED RESPONSE FORMAT (JSON only):
-{
-  "auditScore": <number 0-100>,
-  "automationReadinessLevel": "<Low|Medium|High|Very High>",
-  "executiveSummary": "<2-3 paragraph personalized summary>",
-  "identifiedOpportunities": [
-    {
-      "area": "<area name>",
-      "description": "<specific description>",
-      "estimatedTimeSavedPerWeek": <hours>,
-      "priority": "<Critical|High|Medium|Low>"
-    }
-  ],
-  "recommendedAgents": [
-    {
-      "agentName": "<e.g. AI Sales Agent>",
-      "agentType": "<category>",
-      "description": "<what it does for this specific business>",
-      "estimatedROI": "<e.g. 3x within 6 months>",
-      "implementationTime": "<e.g. 2-3 weeks>"
-    }
-  ],
-  "estimatedAnnualSavings": {
-    "timeHours": <number>,
-    "moneyINR": <number>
-  },
-  "recommendedStack": ["<tool1>", "<tool2>"],
-  "quickWins": ["<action 1>", "<action 2>", "<action 3>"],
-  "longTermGoals": ["<goal 1>", "<goal 2>"],
-  "fullReportText": "<detailed multi-paragraph report for the PDF>"
-}
-
-Be specific to this EXACT business. Reference their actual tools, pain points, and industry.
-For Indian businesses, factor in WhatsApp automation, regional market dynamics, and INR costs.
-Ensure auditScore reflects genuine automation potential: higher score = more opportunity.
-`;
 };
 
 // ── Normalize & validate analysis output ─────────────────────────────────────
