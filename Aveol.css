@@ -2873,15 +2873,17 @@ footer {
 }
 
 .founder-photo {
-  width: 240px;
-  height: 240px;
+  width: 320px;
+  height: 320px;
   border-radius: 50%;
   object-fit: cover;
   object-position: 50% 10%;
   display: block;
   position: relative;
   z-index: 1;
-  border: 3px solid rgba(201, 162, 77, 0.4);
+  border: 4px solid var(--gold);
+  box-shadow: 0 0 60px rgba(201, 162, 77, 0.35);
+  filter: brightness(1.08) contrast(1.05);
 }
 
 .founder-photo-ring {
@@ -2970,8 +2972,8 @@ footer {
   }
 
   .founder-photo {
-    width: 160px;
-    height: 160px;
+    width: 260px;
+    height: 260px;
   }
 
   .founder-bar {
