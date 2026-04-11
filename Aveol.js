@@ -300,7 +300,7 @@ window.AVEOL_BACKEND = (function () {
   if (host === 'localhost' || host === '127.0.0.1') {
     return 'http://localhost:5000';
   }
-  return 'https://aveol-backend.onrender.com'; // ← update to your real production URL
+  return 'https://aveol.onrender.com';
 })();
 
 // Shared fetch helper
