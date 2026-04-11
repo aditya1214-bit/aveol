@@ -1,0 +1,44 @@
+services:
+  - type: web
+    name: aveol-backend
+    env: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: node src/server.js
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: EMAIL_FROM_NAME
+        value: AVEOL AI Automation
+      - key: EMAIL_FROM_ADDRESS
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: CALENDLY_WEBHOOK_SECRET
+        sync: false
+      - key: CALENDLY_BOOKING_URL
+        sync: false
+      - key: SLACK_WEBHOOK_URL
+        sync: false
+      - key: FRONTEND_URL
+        value: https://aveol.netlify.app
+      - key: ADMIN_REGISTRATION_CODE
+        sync: false
