@@ -1,7 +1,14 @@
 const OpenAI = require('openai');
 const logger = require('../utils/logger');
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+let openai = null;
+if (process.env.OPENAI_API_KEY && process.env.OPENAI_API_KEY !== 'placeholder') {
+  try {
+    openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  } catch (err) {
+    logger.warn('Failed to initialize OpenAI client. Mock responses will be used.');
+  }
+}
 
 /**
  * Analyzes audit form data and returns structured AI recommendations
@@ -10,6 +17,47 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
  * @returns {Object} Structured analysis result
  */
 const analyzeBusinessAudit = async (clientData, auditData) => {
+  // If no OpenAI key, return a mock response so the platform still functions fully
+  if (!openai) {
+    logger.warn('No valid OPENAI_API_KEY found. Generating a standard (mocked) AI report.');
+    return normalizeAnalysis({
+      auditScore: 75,
+      automationReadinessLevel: 'High',
+      executiveSummary: `Based on your audit submission for ${clientData.companyName}, we have identified high-value automation opportunities. Replacing manual data entry and sales follow-ups with intelligent AI agents can drive significant ROI.`,
+      identifiedOpportunities: [
+        {
+          area: 'Customer Support & Lead Capture',
+          description: 'Deploy an AI chatbot on your website and WhatsApp to handle initial inquiries 24/7.',
+          estimatedTimeSavedPerWeek: 15,
+          priority: 'Critical'
+        },
+        {
+          area: 'Sales CRM Automation',
+          description: 'Automatically route and score leads based on customer responses.',
+          estimatedTimeSavedPerWeek: 10,
+          priority: 'High'
+        }
+      ],
+      recommendedAgents: [
+        {
+          agentName: '24/7 AI Receptionist',
+          agentType: 'Support & Lead Gen',
+          description: 'Instantly responds to prospects, answers FAQs, and books calls directly to your calendar.',
+          estimatedROI: 'Saves 1 full-time salary / 3x ROI in 6 months',
+          implementationTime: '2-3 weeks'
+        }
+      ],
+      estimatedAnnualSavings: {
+        timeHours: 1300,
+        moneyINR: 350000
+      },
+      recommendedStack: ['Make.com/Zapier', 'OpenAI ChatGPT API', 'WhatsApp Cloud API'],
+      quickWins: ['Connect lead form directly to CRM', 'Automate immediate welcome emails for new leads'],
+      longTermGoals: ['End-to-end automated invoice generation', 'AI-driven business analytics dashboard'],
+      fullReportText: `This is a standard template report because a valid OpenAI API Key was not provided securely to the backend instance. Once you configure your OpenAI API Key, the system will use GPT-4 to dynamically write personalized, multi-page automation reports unique to each client's specific bottlenecks, tools, and industry context.`
+    });
+  }
+
   const prompt = buildAuditPrompt(clientData, auditData);
 
   const response = await openai.chat.completions.create({
