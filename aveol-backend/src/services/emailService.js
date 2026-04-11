@@ -56,7 +56,7 @@ const wrapEmail = (bodyContent) => `
     </div>
     <div class="footer">
       <p>© ${new Date().getFullYear()} AVEOL AI Automation Agency · Based in India</p>
-      <p><a href="https://aveol.netlify.app">aveol.netlify.app</a> · <a href="mailto:hello@aveol.ai">hello@aveol.ai</a></p>
+      <p><a href="https://aveol.netlify.app">aveol.netlify.app</a> · <a href="mailto:rajaditya81156@gmail.com">rajaditya81156@gmail.com</a></p>
       <p style="color:#444; font-size:11px; margin-top:12px;">You're receiving this because you submitted an audit request. <a href="#" style="color:#444;">Unsubscribe</a></p>
     </div>
   </div>
@@ -111,7 +111,7 @@ const sendAuditReportEmail = async (client, auditResponse, pdfPath) => {
       <p style="color:#888; font-size:12px; margin-top:8px;">30 minutes · No commitment · Free</p>
     </div>
     
-    <p class="p" style="color:#888; font-size:13px;">Questions? Reply to this email or reach us at hello@aveol.ai</p>
+    <p class="p" style="color:#888; font-size:13px;">Questions? Reply to this email or reach us at rajaditya81156@gmail.com</p>
   `;
 
   const attachments = [];

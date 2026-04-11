@@ -275,7 +275,7 @@ const generateAuditPDF = async (client, auditResponse) => {
         .font('Helvetica')
         .fontSize(11)
         .fillColor(COLORS.gray)
-        .text('hello@aveol.ai  |  aveol.netlify.app', 50, 380, {
+        .text('rajaditya81156@gmail.com  |  aveol.netlify.app', 50, 380, {
           align: 'center',
           width: pageWidth + 50,
         });
