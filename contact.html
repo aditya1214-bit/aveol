@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book a Free Audit — AVEOL</title>
+    <meta name="description" content="Get a free AI automation audit for your business. AVEOL maps your workflows and builds a custom roadmap showing exactly how much time and money you can save." />
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <!-- ── Open Graph ── -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AVEOL" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:url" content="https://aveol.netlify.app/contact.html" />
+    <meta property="og:title" content="AVEOL — Free AI Automation Audit" />
+    <meta property="og:description" content="Get a personalised AI automation audit for your business. We map your workflows and build a custom roadmap." />
+    <meta property="og:image" content="https://aveol.netlify.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- ── Twitter / X Card ── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AVEOL — Free AI Automation Audit" />
+    <meta name="twitter:description" content="Book a free AI automation audit and get a custom roadmap for your business." />
+    <meta name="twitter:image" content="https://aveol.netlify.app/og-image.png" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="AVEOL.css">
+
+    <style>
+        /* ── Multi-step Audit Form ── */
+        .audit-hero { padding: 140px 24px 60px; text-align: center; position: relative; }
+        .audit-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.2rem); color: var(--text); margin-bottom: 16px; }
+        .audit-hero p { color: var(--text-muted); font-size: 17px; max-width: 560px; margin: 0 auto 40px; }
+
+        /* Step indicator */
+        .step-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 48px;
+        }
+        .step-dot {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+        }
+        .step-dot-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-dim);
+            background: var(--surface);
+            transition: all 0.35s ease;
+            position: relative;
+            z-index: 1;
+        }
+        .step-dot.active .step-dot-circle,
+        .step-dot.done .step-dot-circle {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(201,162,77,0.10);
+        }
+        .step-dot.done .step-dot-circle { background: var(--gold); color: #000; }
+        .step-dot-label {
+            font-size: 11px;
+            color: var(--text-dim);
+            white-space: nowrap;
+            transition: color 0.3s;
+        }
+        .step-dot.active .step-dot-label { color: var(--gold); }
+        .step-connector {
+            width: 72px;
+            height: 2px;
+            background: var(--border);
+            margin-bottom: 22px;
+            flex-shrink: 0;
+        }
+        .step-connector.done { background: var(--gold); }
+
+        /* Audit form wrapper */
+        .audit-wrap {
+            max-width: 740px;
+            margin: 0 auto;
+            padding: 0 24px 100px;
+        }
+        .audit-step {
+            display: none;
+            animation: stepIn 0.35s ease;
+        }
+        .audit-step.active { display: block; }
+        @keyframes stepIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .step-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+        .step-sub {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 32px;
+        }
+
+        /* Form fields */
+        .audit-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+        @media (max-width: 600px) { .audit-form .form-row { grid-template-columns: 1fr; } }
+        .audit-form .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+        .audit-form label { font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: .5px; }
+        .audit-form input[type="text"],
+        .audit-form input[type="email"],
+        .audit-form select,
+        .audit-form textarea {
+            padding: 13px 16px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .audit-form input:focus,
+        .audit-form select:focus,
+        .audit-form textarea:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(201,162,77,0.12);
+        }
+        .audit-form select option { background: #1a1a1a; }
+        .audit-form textarea { resize: vertical; min-height: 100px; }
+
+        /* Checkbox grid for tools */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+        .tool-chip {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            color: var(--text-muted);
+            transition: all 0.2s;
+            user-select: none;
+        }
+        .tool-chip input { display: none; }
+        .tool-chip-check {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+            border: 1.5px solid var(--border);
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+        .tool-chip.selected {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(201,162,77,0.07);
+        }
+        .tool-chip.selected .tool-chip-check {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+
+        /* Nav buttons */
+        .form-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 32px;
+            gap: 12px;
+        }
+        .btn-back {
+            padding: 13px 28px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-muted);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-back:hover { border-color: var(--gold); color: var(--gold); }
+        .btn-next {
+            padding: 13px 36px;
+            background: var(--gold);
+            border: none;
+            border-radius: 8px;
+            color: #000;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-next:hover { background: var(--gold-bright, #d4a943); transform: translateY(-1px); }
+        .btn-next:disabled { opacity: 0.6; cursor: not-allowed; }
+
+        /* Status banner */
+        #auditStatus {
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-top: 20px;
+            display: none;
+            text-align: center;
+        }
+        #auditStatus.error { background: rgba(229,115,115,0.12); color: #e57373; border: 1px solid rgba(229,115,115,0.25); display: block; }
+        #auditStatus.success { background: rgba(129,199,132,0.12); color: #81c784; border: 1px solid rgba(129,199,132,0.25); display: block; }
+
+        /* Contact sidebar */
+        .contact-sidebar {
+            max-width: 740px;
+            margin: 0 auto 60px;
+            padding: 0 24px;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .contact-sidebar-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px 24px;
+            flex: 1;
+            min-width: 200px;
+        }
+        .contact-sidebar-item h4 { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 8px; }
+        .contact-sidebar-item a { color: var(--gold); text-decoration: none; font-size: 15px; }
+        .contact-sidebar-item a:hover { text-decoration: underline; }
+    </style>
+</head>
+
+<body>
+<div class="tech-bg"></div>
+    <div class="noise"></div>
+    <div class="mouse-glow" id="glow"></div>
+    <canvas id="particles"></canvas>
+
+    <nav id="navbar">
+        <a href="index.html" class="logo">AVEOL</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="index.html#services">Services</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+        <a href="contact.html" class="nav-cta">Book a Free Call</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">&#9776;</button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" id="closeMenu">&#x2715;</button>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="btn-primary" style="margin-top:24px;">Book a Free Call</a>
+    </div>
+
+    <!-- HERO -->
+    <div class="audit-hero reveal">
+        <div class="section-label">// Free AI Audit</div>
+        <h1>Get Your Free<br /><span class="gold-text">Automation Roadmap</span></h1>
+        <p>Answer a few quick questions and we'll map out exactly where AI can save your business the most time and money — no commitment required.</p>
+    </div>
+
+    <!-- STEP INDICATOR -->
+    <div class="step-indicator" id="stepIndicator">
+        <div class="step-dot active" id="dot-1">
+            <div class="step-dot-circle">1</div>
+            <div class="step-dot-label">Your Business</div>
+        </div>
+        <div class="step-connector" id="conn-1"></div>
+        <div class="step-dot" id="dot-2">
+            <div class="step-dot-circle">2</div>
+            <div class="step-dot-label">Pain Points</div>
+        </div>
+        <div class="step-connector" id="conn-2"></div>
+        <div class="step-dot" id="dot-3">
+            <div class="step-dot-circle">3</div>
+            <div class="step-dot-label">Goals & Budget</div>
+        </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="audit-wrap">
+        <form class="audit-form" id="auditForm" novalidate>
+
+            <!-- ── STEP 1: Business Info ── -->
+            <div class="audit-step active" id="step-1">
+                <div class="step-title">Tell us about your business</div>
+                <div class="step-sub">We use this to personalise your automation roadmap.</div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="Your full name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Work Email *</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="companyName">Company Name *</label>
+                        <input type="text" id="companyName" name="companyName" placeholder="Your company name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="industry">Industry *</label>
+                        <select id="industry" name="industry" required>
+                            <option value="" disabled selected>Select your industry</option>
+                            <option value="Agency">Agency</option>
+                            <option value="Consultancy">Consultancy</option>
+                            <option value="SaaS">SaaS</option>
+                            <option value="E-commerce">E-commerce</option>
+                            <option value="Healthcare">Healthcare</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Real Estate">Real Estate</option>
+                            <option value="Logistics">Logistics</option>
+                            <option value="Education">Education</option>
+                            <option value="Manufacturing">Manufacturing</option>
+                            <option value="Retail">Retail</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="teamSize">Team Size</label>
+                        <select id="teamSize" name="teamSize">
+                            <option value="" disabled selected>Select team size</option>
+                            <option value="1-5">1–5 people</option>
+                            <option value="6-20">6–20 people</option>
+                            <option value="21-50">21–50 people</option>
+                            <option value="51-200">51–200 people</option>
+                            <option value="200+">200+ people</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="companyRole">Your Role</label>
+                        <select id="companyRole" name="companyRole">
+                            <option value="" disabled selected>What best describes you?</option>
+                            <option value="Business Owner / CEO">Business Owner / CEO</option>
+                            <option value="Agency Owner">Agency Owner</option>
+                            <option value="Startup / Scale-up Founder">Startup / Scale-up Founder</option>
+                            <option value="Operations / Process Manager">Operations / Process Manager</option>
+                            <option value="Enterprise Decision Maker">Enterprise Decision Maker</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-nav">
+                    <span></span>
+                    <button type="button" class="btn-next" id="next-1">Next: Pain Points →</button>
+                </div>
+            </div>
+
+            <!-- ── STEP 2: Pain Points ── -->
+            <div class="audit-step" id="step-2">
+                <div class="step-title">What's slowing you down?</div>
+                <div class="step-sub">This helps us identify your biggest automation wins.</div>
+
+                <div class="form-group">
+                    <label>Tools your team currently uses</label>
+                    <div class="tools-grid" id="toolsGrid">
+                        <label class="tool-chip"><input type="checkbox" name="currentToolsChk" value="Google Workspace"><span class="tool-chip-check"></span>Google Workspace</label>
+                        <label class="tool-chip"><input type="checkbox" name="currentToolsChk" value="Notion"><span class="tool-chip-check"></span>Notion</label>
+                        <label class="tool-chip"><input type="checkbox" name="currentToolsChk" value="Slack"><span class="tool-chip-check"></span>Slack</label>
+                        <label class="tool-chip"><input type="checkbox" name="currentToolsChk" value="HubSpot"><span class="tool-chip-check"></span>HubSpot</label>
+                        <label class="tool-chip"><input type="checkbox" name="currentToolsChk" value="Zoho"><span class="tool-chip-check"></span>Zoho</label>
+                        <label class="tool-chip"><input type="checkbox" name="currentToolsChk" value="Salesforce"><span class="tool-chip-check"></span>Salesforce</label>
+                        <label class="tool-chip"><input type="checkbox" name="currentToolsChk" value="Trello / Asana"><span class="tool-chip-check"></span>Trello / Asana</label>
+                        <label class="tool-chip"><input type="checkbox" name="currentToolsChk" value="WhatsApp Business"><span class="tool-chip-check"></span>WhatsApp Business</label>
+                        <label class="tool-chip"><input type="checkbox" name="currentToolsChk" value="Excel / Sheets"><span class="tool-chip-check"></span>Excel / Sheets</label>
+                        <label class="tool-chip"><input type="checkbox" name="currentToolsChk" value="Custom CRM"><span class="tool-chip-check"></span>Custom CRM</label>
+                    </div>
+                    <input type="text" name="otherTools" placeholder="Any other tools? (optional)" style="margin-top:8px;" />
+                </div>
+
+                <div class="form-group">
+                    <label for="biggestBottlenecks">What are your biggest operational bottlenecks?</label>
+                    <textarea id="biggestBottlenecks" name="biggestBottlenecks" placeholder="e.g. We spend hours every week manually following up with leads, exporting reports from different systems..." rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="repetitiveTasks">Which tasks do your team repeat manually every day/week?</label>
+                    <textarea id="repetitiveTasks" name="repetitiveTasks" placeholder="e.g. Data entry, sending status update emails, pulling analytics from 3 different platforms..." rows="3"></textarea>
+                </div>
+
+                <div class="form-nav">
+                    <button type="button" class="btn-back" id="back-2">← Back</button>
+                    <button type="button" class="btn-next" id="next-2">Next: Goals & Budget →</button>
+                </div>
+            </div>
+
+            <!-- ── STEP 3: Goals & Budget ── -->
+            <div class="audit-step" id="step-3">
+                <div class="step-title">Goals & investment</div>
+                <div class="step-sub">Help us understand your priorities so we can tailor the roadmap.</div>
+
+                <div class="form-group">
+                    <label for="automationGoals">What do you want to achieve with automation?</label>
+                    <textarea id="automationGoals" name="automationGoals" placeholder="e.g. Cut 20+ hours/week of admin work, scale outreach without hiring more staff, improve response time to clients..." rows="3"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="budgetRange">Budget range (monthly)</label>
+                        <select id="budgetRange" name="budgetRange">
+                            <option value="" disabled selected>Select a range</option>
+                            <option value="Under ₹25,000">Under ₹25,000</option>
+                            <option value="₹25,000–₹75,000">₹25,000–₹75,000</option>
+                            <option value="₹75,000–₹2,00,000">₹75,000–₹2,00,000</option>
+                            <option value="₹2,00,000+">₹2,00,000+</option>
+                            <option value="Depends on ROI">Depends on ROI</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="timeline">When do you want to start?</label>
+                        <select id="timeline" name="timeline">
+                            <option value="" disabled selected>Select timeline</option>
+                            <option value="Immediately">Immediately</option>
+                            <option value="Within 1 month">Within 1 month</option>
+                            <option value="1-3 months">1–3 months</option>
+                            <option value="3+ months">3+ months</option>
+                            <option value="Just exploring">Just exploring for now</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="previousAutomationExperience">Have you tried automation tools before?</label>
+                    <select id="previousAutomationExperience" name="previousAutomationExperience">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="No, completely new to this">No, completely new to this</option>
+                        <option value="Tried basic tools like Zapier">Tried basic tools (Zapier, Make, etc.)</option>
+                        <option value="Have some internal automations">Have some internal automations</option>
+                        <option value="Worked with agencies before">Worked with automation agencies before</option>
+                    </select>
+                </div>
+
+                <!-- Honeypot (hidden from real users) -->
+                <input type="text" name="_honey" style="display:none;" tabindex="-1" autocomplete="off" />
+
+                <div id="auditStatus"></div>
+
+                <div class="form-nav">
+                    <button type="button" class="btn-back" id="back-3">← Back</button>
+                    <button type="submit" class="btn-next" id="submitBtn">Get My Free Roadmap →</button>
+                </div>
+
+                <p style="font-size:12px; color:var(--text-dim); margin-top:20px; text-align:center;">🔒 Your information is private and confidential. We'll reach out within 24 hours.</p>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- CONTACT ALTERNATIVES -->
+    <div class="contact-sidebar">
+        <div class="contact-sidebar-item">
+            <h4>📧 Email Us Directly</h4>
+            <a href="mailto:hello@aveol.ai">hello@aveol.ai</a>
+        </div>
+        <div class="contact-sidebar-item">
+            <h4>💼 LinkedIn</h4>
+            <a href="https://www.linkedin.com/in/aditya-kumar-518580319" target="_blank" rel="noopener noreferrer">Connect with Aditya →</a>
+        </div>
+        <div class="contact-sidebar-item">
+            <h4>📍 Location</h4>
+            <span style="color:var(--text-muted); font-size:15px;">Based in India · Serving globally</span>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-logo">AVEOL</div>
+            <p class="footer-tag">Autonomous Intelligence. Infinite Scale.</p>
+            <div class="footer-links">
+                <a href="about.html">About</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-links" style="margin-top:12px;">
+                <a href="mailto:hello@aveol.ai">📧 hello@aveol.ai</a>
+                <a href="https://www.linkedin.com/in/aditya-kumar-518580319" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
+            </div>
+            <p class="footer-copy">© 2026 AVEOL — All Rights Reserved · Based in India</p>
+        </div>
+    </footer>
+
+    <script src="AVEOL.js"></script>
+
+    <script>
+    // ══════════════════════════════════════════════
+    //  MULTI-STEP AUDIT FORM LOGIC
+    // ══════════════════════════════════════════════
+    (function () {
+        let currentStep = 1;
+        const totalSteps = 3;
+
+        function showStep(n) {
+            for (let i = 1; i <= totalSteps; i++) {
+                document.getElementById('step-' + i).classList.toggle('active', i === n);
+                const dot = document.getElementById('dot-' + i);
+                dot.classList.remove('active', 'done');
+                if (i < n) dot.classList.add('done');
+                if (i === n) dot.classList.add('active');
+                // connectors
+                if (i < totalSteps) {
+                    const conn = document.getElementById('conn-' + i);
+                    if (conn) conn.classList.toggle('done', i < n);
+                }
+            }
+            currentStep = n;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Checkbox tool chips toggle
+        document.querySelectorAll('.tool-chip').forEach(chip => {
+            chip.addEventListener('click', () => chip.classList.toggle('selected'));
+        });
+
+        // Step 1 → 2
+        document.getElementById('next-1').addEventListener('click', () => {
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const company = document.getElementById('companyName');
+            const industry = document.getElementById('industry');
+
+            if (!name.value.trim() || !email.value.trim() || !company.value.trim() || !industry.value) {
+                shakeInvalid([name, email, company, industry]);
+                return;
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+                shakeInvalid([email]);
+                return;
+            }
+            showStep(2);
+        });
+
+        // Step 2 → 3
+        document.getElementById('next-2').addEventListener('click', () => showStep(3));
+        document.getElementById('back-2').addEventListener('click', () => showStep(1));
+        document.getElementById('back-3').addEventListener('click', () => showStep(2));
+
+        // Final submit
+        document.getElementById('auditForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const status = document.getElementById('auditStatus');
+            btn.disabled = true;
+            btn.textContent = 'Sending…';
+            status.className = '';
+            status.style.display = 'none';
+
+            // Collect selected tools
+            const selectedTools = [...document.querySelectorAll('.tool-chip.selected input')]
+                .map(cb => cb.value);
+
+            const data = {
+                // Step 1
+                name:            document.getElementById('name').value.trim(),
+                email:           document.getElementById('email').value.trim(),
+                companyName:     document.getElementById('companyName').value.trim(),
+                industry:        document.getElementById('industry').value,
+                teamSize:        document.getElementById('teamSize').value || undefined,
+                companyRole:     document.getElementById('companyRole').value || undefined,
+                // Step 2
+                currentTools:    selectedTools,
+                otherTools:      document.querySelector('input[name="otherTools"]').value.trim() || undefined,
+                biggestBottlenecks: document.getElementById('biggestBottlenecks').value.trim() || undefined,
+                repetitiveTasks:    document.getElementById('repetitiveTasks').value.trim() || undefined,
+                // Step 3
+                automationGoals: document.getElementById('automationGoals').value.trim() || undefined,
+                budgetRange:     document.getElementById('budgetRange').value || undefined,
+                timeline:        document.getElementById('timeline').value || undefined,
+                previousAutomationExperience: document.getElementById('previousAutomationExperience').value || undefined,
+                // Honeypot
+                _honey: document.querySelector('input[name="_honey"]').value,
+            };
+
+            try {
+                const res = await fetch(window.AVEOL_BACKEND + '/api/audit/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                });
+                const json = await res.json().catch(() => ({}));
+
+                if (res.ok || res.status === 202) {
+                    window.location.href = 'thank-you.html';
+                } else {
+                    throw new Error(json.message || 'Submission failed. Please try again.');
+                }
+            } catch (err) {
+                status.textContent = '⚠ ' + (err.message || 'Something went wrong. Please email us at hello@aveol.ai');
+                status.className = 'error';
+                btn.textContent = 'Get My Free Roadmap →';
+                btn.disabled = false;
+            }
+        });
+
+        function shakeInvalid(fields) {
+            fields.forEach(f => {
+                if (!f.value) {
+                    f.style.borderColor = '#e57373';
+                    f.style.animation = 'none';
+                    setTimeout(() => { f.style.animation = ''; }, 10);
+                    setTimeout(() => { f.style.borderColor = ''; }, 1500);
+                }
+            });
+        }
+    })();
+    </script>
+
+</body>
+</html>

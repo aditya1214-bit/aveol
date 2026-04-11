@@ -1,0 +1,20 @@
+# Backend
+aveol-backend/node_modules/
+aveol-backend/.env
+aveol-backend/logs/
+aveol-backend/reports/
+aveol-backend/*.log
+aveol-backend/server_log.txt
+aveol-backend/coverage/
+aveol-backend/{src/
+
+# Python scripts (utility only, not needed in production)
+*.pyc
+__pycache__/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog — AVEOL</title>
+    <meta name="description"
+        content="Insights on AI agent automation, workflow design, and scaling businesses with intelligent systems." />
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <!-- ── Open Graph ── -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AVEOL" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:url" content="https://aveol.ai/blog.html" />
+    <meta property="og:title" content="Blog — AI Automation Insights | AVEOL" />
+    <meta property="og:description"
+        content="Insights on AI agents, automation strategy, and building businesses that run themselves. By the AVEOL team." />
+    <meta property="og:image" content="https://aveol.ai/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- ── Twitter / X Card ── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AVEOL Blog — AI Automation Insights" />
+    <meta name="twitter:description"
+        content="Insights on AI agents and automation strategy for every type of business." />
+    <meta name="twitter:image" content="https://aveol.ai/og-image.png" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="AVEOL.css">
+</head>
+
+<body>
+
+    <div class="noise"></div>
+    <div class="mouse-glow" id="glow"></div>
+    <canvas id="particles"></canvas>
+
+    <nav id="navbar">
+        <a href="index.html" class="logo">AVEOL</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="index.html#services">Services</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <a href="index.html#waitlist" class="nav-cta">Book a Free Call</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">&#9776;</button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" id="closeMenu">&#x2715;</button>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html">Contact</a>
+        <a href="index.html#waitlist" class="btn-primary" style="margin-top:24px;">Book a Free Call</a>
+    </div>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="page-hero-content reveal">
+            <div class="section-label">// Blog</div>
+            <h1 class="page-hero-title">Intelligence.<br /><span class="gold-text">Decoded.</span></h1>
+            <p class="page-hero-sub">Insights on AI agents, automation strategy, and building businesses that run
+                themselves.</p>
+        </div>
+        <div class="orb orb-1"></div>
+    </section>
+
+    <!-- BLOG GRID -->
+    <section class="section">
+        <div class="section-inner">
+
+            <!-- FEATURED POST -->
+            <div class="blog-featured reveal">
+                <div class="blog-featured-text">
+                    <span class="blog-tag">AI Agents</span>
+                    <h2 class="blog-featured-title">What Is an AI Agent — and Why Your Business Needs One in 2026</h2>
+                    <p class="blog-featured-excerpt">Everyone's talking about AI, but few understand the shift from
+                        chatbots to autonomous agents. Here's what it means, and how it will fundamentally change how
+                        your business operates.</p>
+                    <div class="blog-meta">
+                        <span>Mar 01, 2026</span>
+                        <span>·</span>
+                        <span>6 min read</span>
+                    </div>
+                    <a href="article-1.html" class="btn-ghost" style="margin-top:24px; display:inline-block;">Read
+                        Article →</a>
+                </div>
+                <div class="blog-featured-visual">
+                    <div class="blog-visual-placeholder">
+                        <img src="card_ai_agent.png" alt="AI Agent"
+                            style="width:100%;height:100%;object-fit:cover;border-radius:12px;" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- BLOG GRID -->
+            <div class="blog-grid">
+
+                <div class="blog-card reveal">
+                    <div class="blog-card-visual blog-card-visual-img">
+                        <img src="blog-cover-1.png" alt="5 Workflows Agency" />
+                    </div>
+                    <div class="blog-card-body">
+                        <span class="blog-tag">Automation</span>
+                        <h3><a href="article-2.html" style="color:inherit;text-decoration:none;">The 5 Workflows Every
+                                Agency Should Automate First</a></h3>
+                        <p>Stop wasting your team's time on tasks that AI can do better. The five highest-leverage
+                            automations for any agency.</p>
+                        <div class="blog-meta">
+                            <span>Feb 22, 2026</span> · <span>4 min read</span>
+                        </div>
+                        <a href="article-2.html" class="btn-ghost"
+                            style="margin-top:16px; display:inline-block; font-size:13px;">Read Article →</a>
+                    </div>
+                </div>
+
+                <div class="blog-card reveal">
+                    <div class="blog-card-visual blog-card-visual-img">
+                        <img src="blog-cover-2.png" alt="Founder Scaled ₹40L" />
+                    </div>
+                    <div class="blog-card-body">
+                        <span class="blog-tag">Growth</span>
+                        <h3><a href="article-3.html" style="color:inherit;text-decoration:none;">How One Founder Scaled
+                                to ₹40L/Month Using AI Agents</a></h3>
+                        <p>A deep dive into how a business consultant automated sales, fulfillment, and reporting — with zero
+                            new hires.</p>
+                        <div class="blog-meta">
+                            <span>Feb 15, 2026</span> · <span>7 min read</span>
+                        </div>
+                        <a href="article-3.html" class="btn-ghost"
+                            style="margin-top:16px; display:inline-block; font-size:13px;">Read Article →</a>
+                    </div>
+                </div>
+
+                <div class="blog-card reveal">
+                    <div class="blog-card-visual blog-card-visual-img">
+                        <img src="blog-cover-3.png" alt="Multi-Agent Systems" loading="lazy" />
+                    </div>
+                    <div class="blog-card-body">
+                        <span class="blog-tag">Strategy</span>
+                        <h3><a href="article-4.html" style="color:inherit;text-decoration:none;">Multi-Agent Systems
+                                Explained: When One AI Isn't Enough</a></h3>
+                        <p>How orchestrating multiple specialised agents creates results no single AI model could
+                            achieve alone.</p>
+                        <div class="blog-meta">
+                            <span>Feb 08, 2026</span> · <span>5 min read</span>
+                        </div>
+                        <a href="article-4.html" class="btn-ghost"
+                            style="margin-top:16px; display:inline-block; font-size:13px;">Read Article →</a>
+                    </div>
+                </div>
+
+                <div class="blog-card reveal">
+                    <div class="blog-card-visual blog-card-visual-img">
+                        <img src="blog-cover-4.png" alt="AI Outreach Agents" loading="lazy" />
+                    </div>
+                    <div class="blog-card-body">
+                        <span class="blog-tag">Outreach</span>
+                        <h3><a href="article-5.html" style="color:inherit;text-decoration:none;">AI Outreach Agents: The
+                                End of Cold Email Mediocrity</a></h3>
+                        <p>Why AI-driven outreach consistently outperforms human-written cold emails — and how to deploy
+                            it today.</p>
+                        <div class="blog-meta">
+                            <span>Feb 01, 2026</span> · <span>5 min read</span>
+                        </div>
+                        <a href="article-5.html" class="btn-ghost"
+                            style="margin-top:16px; display:inline-block; font-size:13px;">Read Article →</a>
+                    </div>
+                </div>
+
+                <div class="blog-card reveal">
+                    <div class="blog-card-visual blog-card-visual-img">
+                        <img src="blog-cover-5.png" alt="Connecting Your Stack" loading="lazy" />
+                    </div>
+                    <div class="blog-card-body">
+                        <span class="blog-tag">Integration</span>
+                        <h3><a href="article-6.html" style="color:inherit;text-decoration:none;">Connecting Your Stack:
+                                How AI Agents Work Across 100+ Tools</a></h3>
+                        <p>Your tools shouldn't work in silos. Here's how AVEOL agents bridge your entire tech stack
+                            into one seamless operation.</p>
+                        <div class="blog-meta">
+                            <span>Jan 25, 2026</span> · <span>4 min read</span>
+                        </div>
+                        <a href="article-6.html" class="btn-ghost"
+                            style="margin-top:16px; display:inline-block; font-size:13px;">Read Article →</a>
+                    </div>
+                </div>
+
+                <div class="blog-card reveal">
+                    <div class="blog-card-visual blog-card-visual-img">
+                        <img src="blog-cover-6.png" alt="AI Agents for Sales Teams" loading="lazy" />
+                    </div>
+                    <div class="blog-card-body">
+                        <span class="blog-tag">Enterprise</span>
+                        <h3><a href="article-7.html" style="color:inherit;text-decoration:none;">AI Agents for Sales
+                                Teams: From Manual Outreach to Autonomous Pipelines</a></h3>
+                        <p>How sales teams are replacing manual prospecting and follow-up sequences with AI agent
+                            workflows that run 24/7.</p>
+                        <div class="blog-meta">
+                            <span>Jan 18, 2026</span> · <span>6 min read</span>
+                        </div>
+                        <a href="article-7.html" class="btn-ghost"
+                            style="margin-top:16px; display:inline-block; font-size:13px;">Read Article →</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- NEWSLETTER -->
+            <div class="newsletter-box reveal">
+                <div class="newsletter-text">
+                    <h3>Stay ahead of the curve</h3>
+                    <p>Get weekly insights on AI automation, agent strategies, and business scaling — straight to your
+                        inbox.</p>
+                </div>
+                <form class="newsletter-form" id="newsletterForm" name="newsletter" data-netlify="true"
+                    netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="newsletter" />
+                    <input type="text" name="bot-field" style="display:none" />
+                    <input type="email" name="email" placeholder="Your work email address" required />
+                    <button type="submit" class="btn-primary">Subscribe →</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-logo">AVEOL</div>
+            <p class="footer-tag">Autonomous Intelligence. Infinite Scale.</p>
+            <div class="footer-links">
+                <a href="about.html">About</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p class="footer-copy">© 2026 AVEOL — All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="AVEOL.js"></script>
+</body>
+
+</html>
