@@ -37,17 +37,6 @@ const clientSchema = new mongoose.Schema(
     // ── Lead Management ─────────────────────────────────────────
     status: {
       type: String,
-      enum: [
-        'new',
-        'audit_submitted',
-        'report_sent',
-        'follow_up_1',
-        'follow_up_2',
-        'consultation_booked',
-        'converted',
-        'lost',
-        'disqualified',
-      ],
       default: 'new',
     },
     leadScore: {
@@ -58,7 +47,6 @@ const clientSchema = new mongoose.Schema(
     },
     priority: {
       type: String,
-      enum: ['low', 'medium', 'high', 'hot'],
       default: 'medium',
     },
     adminNotes: [
@@ -73,7 +61,6 @@ const clientSchema = new mongoose.Schema(
     // ── Source ──────────────────────────────────────────────────
     source: {
       type: String,
-      enum: ['website', 'waitlist', 'referral', 'manual', 'other'],
       default: 'website',
     },
     utmSource: String,

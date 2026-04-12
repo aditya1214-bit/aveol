@@ -48,23 +48,9 @@ const auditResponseSchema = new mongoose.Schema(
     // ── Step 3: Scale & Budget ─────────────────────────────────
     monthlyBusinessVolume: {
       type: String,
-      enum: [
-        'Under ₹5L/month',
-        '₹5L–₹20L/month',
-        '₹20L–₹1Cr/month',
-        '₹1Cr+/month',
-        'Prefer not to say',
-      ],
     },
     budgetRange: {
       type: String,
-      enum: [
-        'Under ₹25,000',
-        '₹25,000–₹75,000',
-        '₹75,000–₹2,00,000',
-        '₹2,00,000+',
-        'Depends on ROI',
-      ],
     },
     automationGoals: {
       type: String,
