@@ -26,35 +26,12 @@ const clientSchema = new mongoose.Schema(
     industry: {
       type: String,
       required: true,
-      enum: [
-        'Agency',
-        'Consultancy',
-        'SaaS',
-        'E-commerce',
-        'Healthcare',
-        'Finance',
-        'Real Estate',
-        'Logistics',
-        'Education',
-        'Manufacturing',
-        'Retail',
-        'Other',
-      ],
     },
     teamSize: {
       type: String,
-      enum: ['1-5', '6-20', '21-50', '51-200', '200+'],
     },
     companyRole: {
       type: String,
-      enum: [
-        'Business Owner / CEO',
-        'Agency Owner',
-        'Startup / Scale-up Founder',
-        'Operations / Process Manager',
-        'Enterprise Decision Maker',
-        'Other',
-      ],
     },
 
     // ── Lead Management ─────────────────────────────────────────
