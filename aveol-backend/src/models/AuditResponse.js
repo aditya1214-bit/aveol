@@ -73,8 +73,12 @@ const auditResponseSchema = new mongoose.Schema(
     timeline: {
       type: String,
       enum: [
-        'ASAP',
+        'Immediately',
         'Within 1 month',
+        '1-3 months',
+        '3+ months',
+        'Just exploring for now',
+        'ASAP',
         '1–3 months',
         '3–6 months',
         'Just exploring',
@@ -82,7 +86,16 @@ const auditResponseSchema = new mongoose.Schema(
     },
     previousAutomationExperience: {
       type: String,
-      enum: ['None', 'Basic (Zapier/Make)', 'Intermediate', 'Advanced'],
+      enum: [
+        'No, completely new to this',
+        'Tried basic tools like Zapier',
+        'Have some internal automations',
+        'Worked with agencies before',
+        'None',
+        'Basic (Zapier/Make)',
+        'Intermediate',
+        'Advanced',
+      ],
     },
 
     // ── AI Analysis Results ────────────────────────────────────
