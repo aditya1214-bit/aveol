@@ -2,13 +2,16 @@ const nodemailer = require('nodemailer');
 const Contact = require('../models/Contact');
 const logger = require('../utils/logger');
 
-// Setup Nodemailer transporter
+// Setup Nodemailer transporter (port 465 SSL — more reliable on cloud servers)
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
   auth: {
     user: process.env.GMAIL_USER,
     pass: process.env.GMAIL_APP_PASSWORD,
   },
+  tls: { rejectUnauthorized: false },
 });
 
 const submitContact = async (req, res) => {
