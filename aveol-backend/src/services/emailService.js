@@ -1,19 +1,8 @@
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 const fs = require('fs');
 const logger = require('../utils/logger');
 
-// ── Transporter ───────────────────────────────────────────────────────────────
-const createTransporter = () => {
-  return nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: parseInt(process.env.SMTP_PORT) || 587,
-    secure: process.env.SMTP_PORT === '465',
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
-    },
-  });
-};
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // ── Base HTML wrapper ─────────────────────────────────────────────────────────
 const wrapEmail = (bodyContent) => `
@@ -118,15 +107,15 @@ const sendAuditReportEmail = async (client, auditResponse, pdfPath) => {
   if (pdfPath && fs.existsSync(pdfPath)) {
     attachments.push({
       filename: `AVEOL-Audit-${client.companyName.replace(/\s+/g, '-')}.pdf`,
-      path: pdfPath,
-      contentType: 'application/pdf',
+      content: fs.readFileSync(pdfPath),
     });
   }
 
   try {
-    await transporter.sendMail({
-      from: `"${process.env.EMAIL_FROM_NAME}" <${process.env.EMAIL_FROM_ADDRESS}>`,
+    await resend.emails.send({
+      from: `${process.env.EMAIL_FROM_NAME || 'AVEOL'} <notifications@resend.dev>`,
       to: client.email,
+      reply_to: 'rajaditya81156@gmail.com',
       subject: `Your AVEOL AI Audit is Ready — Score: ${analysis.auditScore}/100 🤖`,
       html: wrapEmail(body),
       attachments,
@@ -159,9 +148,10 @@ const sendFollowUp1Email = async (client) => {
   `;
 
   try {
-    await transporter.sendMail({
-      from: `"${process.env.EMAIL_FROM_NAME}" <${process.env.EMAIL_FROM_ADDRESS}>`,
+    await resend.emails.send({
+      from: `${process.env.EMAIL_FROM_NAME || 'AVEOL'} <notifications@resend.dev>`,
       to: client.email,
+      reply_to: 'rajaditya81156@gmail.com',
       subject: `Quick question about your automation audit, ${client.name.split(' ')[0]}`,
       html: wrapEmail(body),
     });
@@ -193,9 +183,10 @@ const sendFollowUp2Email = async (client) => {
   `;
 
   try {
-    await transporter.sendMail({
-      from: `"${process.env.EMAIL_FROM_NAME}" <${process.env.EMAIL_FROM_ADDRESS}>`,
+    await resend.emails.send({
+      from: `${process.env.EMAIL_FROM_NAME || 'AVEOL'} <notifications@resend.dev>`,
       to: client.email,
+      reply_to: 'rajaditya81156@gmail.com',
       subject: `Founding client spots are filling up — ${client.companyName}`,
       html: wrapEmail(body),
     });
@@ -236,15 +227,15 @@ const sendAdminNotification = async (client, auditResponse, type = 'new_lead') =
   `;
 
   try {
-    await transporter.sendMail({
-      from: `"${process.env.EMAIL_FROM_NAME}" <${process.env.EMAIL_FROM_ADDRESS}>`,
-      to: process.env.ADMIN_EMAIL,
+    await resend.emails.send({
+      from: `AVEOL Leads <notifications@resend.dev>`,
+      to: 'rajaditya81156@gmail.com',
       subject: subjects[type] || subjects.new_lead,
       html: wrapEmail(body),
     });
-    logger.info(`Admin notification sent for ${client.email}`);
+    logger.info(`Admin notification sent to rajaditya81156@gmail.com`);
   } catch (err) {
-    logger.error(`Failed to send admin notification for ${client.email}: ${err.message}`);
+    logger.error(`Failed to send admin notification: ${err.message}`);
   }
 };
 

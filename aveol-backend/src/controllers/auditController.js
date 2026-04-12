@@ -1,5 +1,5 @@
 const { v4: uuidv4 } = require('uuid');
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 const Client = require('../models/Client');
 const AuditResponse = require('../models/AuditResponse');
 const { analyzeBusinessAudit, calculateLeadScore, determinePriority } = require('../services/aiAnalysisService');
@@ -8,31 +8,24 @@ const { sendAuditReportEmail, sendAdminNotification } = require('../services/ema
 const { notifyNewLead } = require('../services/slackService');
 const logger = require('../utils/logger');
 
-// ── Shared Gmail transporter ──────────────────────────────────────────────────
-const createGmailTransporter = () => nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
-  auth: { user: process.env.GMAIL_USER, pass: process.env.GMAIL_APP_PASSWORD },
-  tls: { rejectUnauthorized: false },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // ── Simple admin notification helper (used for waitlist) ─────────────────────
 const notifyAdmin = async (subject, htmlBody) => {
-  if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
-    logger.warn(`[EMAIL] notifyAdmin skipped — GMAIL_USER=${process.env.GMAIL_USER || 'MISSING'} PASS=${process.env.GMAIL_APP_PASSWORD ? 'SET' : 'MISSING'}`);
+  if (!process.env.RESEND_API_KEY) {
+    logger.warn(`[EMAIL] notifyAdmin skipped — RESEND_API_KEY MISSING`);
     return;
   }
   try {
-    await createGmailTransporter().sendMail({
-      from: process.env.GMAIL_USER,
+    await resend.emails.send({
+      from: 'AVEOL Notifications <notifications@resend.dev>',
       to: 'rajaditya81156@gmail.com',
       subject,
       html: htmlBody,
     });
     logger.info(`[EMAIL] ✅ Admin notified: ${subject}`);
   } catch (err) {
-    logger.error(`[EMAIL] ❌ notifyAdmin FAILED | code=${err.code} | msg=${err.message} | resp=${String(err.response).substring(0,200)}`);
+    logger.error(`[EMAIL] ❌ notifyAdmin FAILED | msg=${err.message}`);
   }
 };
 
