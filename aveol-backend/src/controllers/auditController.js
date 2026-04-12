@@ -16,7 +16,10 @@ const createGmailTransporter = () => nodemailer.createTransport({
 
 // ── Simple admin notification helper (used for waitlist) ─────────────────────
 const notifyAdmin = async (subject, htmlBody) => {
-  if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) return;
+  if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+    logger.warn(`[EMAIL] notifyAdmin skipped — GMAIL_USER=${process.env.GMAIL_USER || 'MISSING'} PASS=${process.env.GMAIL_APP_PASSWORD ? 'SET' : 'MISSING'}`);
+    return;
+  }
   try {
     await createGmailTransporter().sendMail({
       from: process.env.GMAIL_USER,
@@ -24,8 +27,9 @@ const notifyAdmin = async (subject, htmlBody) => {
       subject,
       html: htmlBody,
     });
+    logger.info(`[EMAIL] ✅ Admin notified: ${subject}`);
   } catch (err) {
-    logger.error('Admin notify failed:', err.message);
+    logger.error(`[EMAIL] ❌ notifyAdmin FAILED | code=${err.code} | msg=${err.message} | resp=${String(err.response).substring(0,200)}`);
   }
 };
 
