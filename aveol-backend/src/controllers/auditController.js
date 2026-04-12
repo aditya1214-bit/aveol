@@ -1,4 +1,5 @@
 const { v4: uuidv4 } = require('uuid');
+const nodemailer = require('nodemailer');
 const Client = require('../models/Client');
 const AuditResponse = require('../models/AuditResponse');
 const { analyzeBusinessAudit, calculateLeadScore, determinePriority } = require('../services/aiAnalysisService');
@@ -6,6 +7,27 @@ const { generateAuditPDF } = require('../services/pdfService');
 const { sendAuditReportEmail, sendAdminNotification } = require('../services/emailService');
 const { notifyNewLead } = require('../services/slackService');
 const logger = require('../utils/logger');
+
+// ── Shared Gmail transporter ──────────────────────────────────────────────────
+const createGmailTransporter = () => nodemailer.createTransport({
+  service: 'gmail',
+  auth: { user: process.env.GMAIL_USER, pass: process.env.GMAIL_APP_PASSWORD },
+});
+
+// ── Simple admin notification helper (used for waitlist) ─────────────────────
+const notifyAdmin = async (subject, htmlBody) => {
+  if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) return;
+  try {
+    await createGmailTransporter().sendMail({
+      from: process.env.GMAIL_USER,
+      to: 'rajaditya81156@gmail.com',
+      subject,
+      html: htmlBody,
+    });
+  } catch (err) {
+    logger.error('Admin notify failed:', err.message);
+  }
+};
 
 /**
  * POST /api/audit/submit
@@ -278,6 +300,15 @@ const joinWaitlist = async (req, res) => {
       success: true,
       message: 'You\'re on the waitlist! We\'ll be in touch soon.',
     });
+
+    // Notify admin
+    notifyAdmin(
+      `🎯 New Waitlist Signup — ${email}`,
+      `<h3>New Waitlist Signup</h3>
+       <p><strong>Email:</strong> ${email}</p>
+       <p><strong>Role:</strong> ${companyRole || 'Not specified'}</p>
+       <p><strong>Time:</strong> ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}</p>`
+    );
   } catch (err) {
     if (err.code === 11000) {
       return res.status(200).json({ success: true, message: 'You\'re already on our list!' });
