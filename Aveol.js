@@ -1,4 +1,4 @@
-// ── DEV STATUS BANNER ──
+﻿// ΓöÇΓöÇ DEV STATUS BANNER ΓöÇΓöÇ
 (function () {
   const banner = document.createElement('div');
   banner.id = 'devBanner';
@@ -16,7 +16,7 @@
   });
 })();
 
-// ── INTRO SPLASH (shows only once per session) ──
+// ΓöÇΓöÇ INTRO SPLASH (shows only once per session) ΓöÇΓöÇ
 window.addEventListener("load", () => {
   const intro = document.getElementById("intro");
   if (!intro) return;
@@ -28,14 +28,14 @@ window.addEventListener("load", () => {
   }
 });
 
-// ── GRID LINES OVERLAY ──
+// ΓöÇΓöÇ GRID LINES OVERLAY ΓöÇΓöÇ
 (function () {
   const grid = document.createElement('div');
   grid.id = 'gridLines';
   document.body.appendChild(grid);
 })();
 
-// ── MOUSE GLOW ──
+// ΓöÇΓöÇ MOUSE GLOW ΓöÇΓöÇ
 const glow = document.getElementById("glow");
 if (glow) {
   document.addEventListener("mousemove", (e) => {
@@ -44,9 +44,9 @@ if (glow) {
   });
 }
 
-// ═══════════════════════════════════════════════════
-//  HERO SPOTLIGHT — moves with mouse inside hero
-// ═══════════════════════════════════════════════════
+// ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+//  HERO SPOTLIGHT ΓÇö moves with mouse inside hero
+// ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 (function () {
   const hero      = document.getElementById('hero');
   const spotlight = document.getElementById('heroSpotlight');
@@ -60,9 +60,9 @@ if (glow) {
   });
 })();
 
-// ═══════════════════════════════════════════════════
-//  CARD INTERIOR GLOW — tracks mouse position as CSS vars
-// ═══════════════════════════════════════════════════
+// ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+//  CARD INTERIOR GLOW ΓÇö tracks mouse position as CSS vars
+// ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 document.addEventListener('mousemove', e => {
   document.querySelectorAll('.card, .step, .big-stat, .audience-card, .value-card').forEach(el => {
     const rect = el.getBoundingClientRect();
@@ -75,7 +75,7 @@ document.addEventListener('mousemove', e => {
   });
 });
 
-// ── SCROLL REVEAL (IntersectionObserver) ──
+// ΓöÇΓöÇ SCROLL REVEAL (IntersectionObserver) ΓöÇΓöÇ
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -89,7 +89,7 @@ window.addEventListener("load", () => {
   document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
 });
 
-// ── FAQ ACCORDION ──
+// ΓöÇΓöÇ FAQ ACCORDION ΓöÇΓöÇ
 document.addEventListener("click", (e) => {
   const q = e.target.closest(".faq-q");
   if (!q) return;
@@ -99,7 +99,7 @@ document.addEventListener("click", (e) => {
   if (!isOpen) item.classList.add("open");
 });
 
-// ── STAT COUNTER ANIMATION ──
+// ΓöÇΓöÇ STAT COUNTER ANIMATION ΓöÇΓöÇ
 function animateCounter(el, target, suffix, duration = 1400) {
   const start = performance.now();
   const update = (now) => {
@@ -130,7 +130,7 @@ window.addEventListener("load", () => {
   document.querySelectorAll(".big-stat").forEach(el => statObserver.observe(el));
 });
 
-// ── CARD 3D TILT (all card types, site-wide) ──
+// ΓöÇΓöÇ CARD 3D TILT (all card types, site-wide) ΓöÇΓöÇ
 document.addEventListener("mousemove", (e) => {
   const SELECTORS = '.card, .pricing-card, .value-card, .audience-card, .blog-card, .step, .big-stat';
   document.querySelectorAll(SELECTORS).forEach(card => {
@@ -141,7 +141,7 @@ document.addEventListener("mousemove", (e) => {
     const dy   = (e.clientY - cy) / (rect.height / 2);
     const dist = Math.sqrt(dx * dx + dy * dy);
     if (dist < 1.5) {
-      // Clamp rotation to max ±7deg
+      // Clamp rotation to max ┬▒7deg
       const rx = Math.max(-7, Math.min(7, -dy * 7));
       const ry = Math.max(-7, Math.min(7,  dx * 7));
       card.style.transform = `perspective(900px) rotateY(${ry}deg) rotateX(${rx}deg) translateZ(10px)`;
@@ -151,7 +151,7 @@ document.addEventListener("mousemove", (e) => {
   });
 });
 
-// ── SECTION TITLES: subtle mouse-parallax depth shift ──
+// ΓöÇΓöÇ SECTION TITLES: subtle mouse-parallax depth shift ΓöÇΓöÇ
 document.addEventListener('mousemove', (e) => {
   const cx = window.innerWidth  / 2;
   const cy = window.innerHeight / 2;
@@ -168,9 +168,9 @@ document.addEventListener('mousemove', (e) => {
 });
 
 
-// ═══════════════════════════════════════════════════
-//  MAGNETIC BUTTONS — gentle pull toward cursor + ripple
-// ═══════════════════════════════════════════════════
+// ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+//  MAGNETIC BUTTONS ΓÇö gentle pull toward cursor + ripple
+// ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 (function () {
   const MAG_STRENGTH = 0.35;
 
@@ -205,7 +205,7 @@ document.addEventListener('mousemove', (e) => {
   });
 })();
 
-// ── NAV SCROLL SHRINK ──
+// ΓöÇΓöÇ NAV SCROLL SHRINK ΓöÇΓöÇ
 const navbar = document.getElementById("navbar");
 if (navbar) {
   window.addEventListener("scroll", () => {
@@ -213,7 +213,7 @@ if (navbar) {
   }, { passive: true });
 }
 
-// ── MOBILE MENU ──
+// ΓöÇΓöÇ MOBILE MENU ΓöÇΓöÇ
 const hamburger  = document.getElementById("hamburger");
 const mobileMenu = document.getElementById("mobileMenu");
 const closeMenu  = document.getElementById("closeMenu");
@@ -225,9 +225,9 @@ if (hamburger && mobileMenu) {
   });
 }
 
-// ═══════════════════════════════════════════════════
-//  PARTICLES CANVAS — mouse repulsion effect
-// ═══════════════════════════════════════════════════
+// ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+//  PARTICLES CANVAS ΓÇö mouse repulsion effect
+// ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 const canvas = document.getElementById("particles");
 if (canvas) {
   const ctx = canvas.getContext("2d");
@@ -311,11 +311,11 @@ if (canvas) {
 }
 
 
-// ══════════════════════════════════════════════════════
+// ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 //  BACKEND CONFIG
 //  Shared by all form handlers on every page.
 //  contact.html references this as window.AVEOL_BACKEND.
-// ══════════════════════════════════════════════════════
+// ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 window.AVEOL_BACKEND = (function () {
   const host = window.location.hostname;
   if (host === 'localhost' || host === '127.0.0.1') {
@@ -338,14 +338,14 @@ async function postJSON(endpoint, data) {
   return json;
 }
 
-// ── WAITLIST FORM (hero — email only) ──
+// ΓöÇΓöÇ WAITLIST FORM (hero ΓÇö email only) ΓöÇΓöÇ
 const wf = document.getElementById('waitlistForm');
 if (wf) {
   wf.addEventListener('submit', async function (e) {
     e.preventDefault();
     const btn = wf.querySelector('.btn-primary');
     const original = btn.textContent;
-    btn.textContent = 'Sending…';
+    btn.textContent = 'SendingΓÇª';
     btn.disabled = true;
     try {
       await postJSON('/api/audit/waitlist', {
@@ -361,14 +361,14 @@ if (wf) {
   });
 }
 
-// ── WAITLIST FORM LG (section — name + email + role) ──
+// ΓöÇΓöÇ WAITLIST FORM LG (section ΓÇö name + email + role) ΓöÇΓöÇ
 const wfLg = document.getElementById('waitlistFormLg');
 if (wfLg) {
   wfLg.addEventListener('submit', async function (e) {
     e.preventDefault();
     const btn = document.getElementById('reserveBtn');
     const original = btn.textContent;
-    btn.textContent = 'Sending…';
+    btn.textContent = 'SendingΓÇª';
     btn.disabled = true;
     try {
       await postJSON('/api/audit/waitlist', {
@@ -387,17 +387,17 @@ if (wfLg) {
 
 // (contact form handled inline in contact.html)
 
-// ── NEWSLETTER ──
+// ΓöÇΓöÇ NEWSLETTER ΓöÇΓöÇ
 const nf = document.getElementById("newsletterForm");
 if (nf) {
   nf.addEventListener("submit", function() {
     const btn = nf.querySelector(".btn-primary");
-    btn.textContent = "Subscribing…";
+    btn.textContent = "SubscribingΓÇª";
     btn.disabled = true;
   });
 }
 
-// ── SCROLL PROGRESS BAR ──
+// ΓöÇΓöÇ SCROLL PROGRESS BAR ΓöÇΓöÇ
 const progressBar = document.createElement('div');
 progressBar.id = 'scrollProgress';
 document.body.prepend(progressBar);
@@ -408,11 +408,11 @@ window.addEventListener('scroll', () => {
   progressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
 }, { passive: true });
 
-// ── BACK TO TOP BUTTON ──
+// ΓöÇΓöÇ BACK TO TOP BUTTON ΓöÇΓöÇ
 const btt = document.createElement('button');
 btt.id = 'backToTop';
 btt.setAttribute('aria-label', 'Back to top');
-btt.innerHTML = '↑';
+btt.innerHTML = 'Γåæ';
 document.body.appendChild(btt);
 
 window.addEventListener('scroll', () => {
@@ -423,7 +423,7 @@ btt.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// ── ROI CALCULATOR ──
+// ΓöÇΓöÇ ROI CALCULATOR ΓöÇΓöÇ
 (function () {
   const teamSize   = document.getElementById('teamSize');
   const hoursEl   = document.getElementById('hoursPerWeek');
@@ -451,7 +451,7 @@ btt.addEventListener('click', () => {
 
     teamSizeVal.textContent   = team;
     hoursVal.textContent      = hrs;
-    hourlyRateVal.textContent = '₹' + rate;
+    hourlyRateVal.textContent = 'Γé╣' + rate;
     coverageVal.textContent   = Math.round(cov * 100) + '%';
 
     const flash = (el, val) => {
@@ -462,10 +462,10 @@ btt.addEventListener('click', () => {
     };
 
     const fmt = (n) => {
-      if (n >= 10000000) return '₹' + (n / 10000000).toFixed(2) + 'Cr';
-      if (n >= 100000)   return '₹' + (n / 100000).toFixed(1) + 'L';
-      if (n >= 1000)     return '₹' + (n / 1000).toFixed(0) + 'K';
-      return '₹' + n;
+      if (n >= 10000000) return 'Γé╣' + (n / 10000000).toFixed(2) + 'Cr';
+      if (n >= 100000)   return 'Γé╣' + (n / 100000).toFixed(1) + 'L';
+      if (n >= 1000)     return 'Γé╣' + (n / 1000).toFixed(0) + 'K';
+      return 'Γé╣' + n;
     };
 
     flash(weeklyHoursEl,  weeklyHours + '<span>h</span>');
@@ -477,7 +477,7 @@ btt.addEventListener('click', () => {
   calcROI();
 })();
 
-// ── WHATSAPP FLOAT BUTTON ──
+// ΓöÇΓöÇ WHATSAPP FLOAT BUTTON ΓöÇΓöÇ
 (function () {
   const WA_NUMBER  = "919693716190";
   const WA_MESSAGE = encodeURIComponent("Hi AVEOL! I'd like to learn more about AI agent automation for my business.");
@@ -500,7 +500,7 @@ btt.addEventListener('click', () => {
   document.body.appendChild(waTooltip);
 })();
 
-// ── COOKIE CONSENT BANNER ──
+// ΓöÇΓöÇ COOKIE CONSENT BANNER ΓöÇΓöÇ
 (function () {
   if (localStorage.getItem('aveol_cookie_consent')) return;
 
@@ -528,7 +528,7 @@ btt.addEventListener('click', () => {
   });
 })();
 
-// ── ROTATING HERO WORD ──
+// ΓöÇΓöÇ ROTATING HERO WORD ΓöÇΓöÇ
 (function () {
   const el = document.getElementById('rotatingIndustry');
   if (!el) return;
@@ -548,7 +548,7 @@ btt.addEventListener('click', () => {
   }, 2500);
 })();
 
-// ── WAITLIST SOCIAL PROOF COUNTER ──
+// ΓöÇΓöÇ WAITLIST SOCIAL PROOF COUNTER ΓöÇΓöÇ
 (function () {
   const el = document.getElementById('waitlistCount');
   if (!el) return;
@@ -567,9 +567,9 @@ btt.addEventListener('click', () => {
   obs.observe(el);
 })();
 
-// ═══════════════════════════════════════════════════
-//  SECTION PARALLAX — orbs drift as page is scrolled
-// ═══════════════════════════════════════════════════
+// ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
+//  SECTION PARALLAX ΓÇö orbs drift as page is scrolled
+// ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 (function () {
   const orbs = document.querySelectorAll('.orb');
   let ticking = false;
@@ -587,9 +587,9 @@ btt.addEventListener('click', () => {
   }, { passive: true });
 })();
 
-// ═══════════════════════════════════════════════════
+// ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 //  SHIMMER REVEAL on scroll for cards & stats
-// ═══════════════════════════════════════════════════
+// ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 (function () {
   const shimmerObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -606,11 +606,11 @@ btt.addEventListener('click', () => {
   });
 })();
 
-console.log("AVEOL — Autonomous Intelligence. Infinite Scale.");
+console.log("AVEOL ΓÇö Autonomous Intelligence. Infinite Scale.");
 
-// ═══════════════════════════════════════════════════
+// ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 //  AI AGENT DEMO TOGGLE (Show/Hide Workflow)
-// ═══════════════════════════════════════════════════
+// ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 document.querySelectorAll('.toggle-demo-btn').forEach(btn => {
   btn.addEventListener('click', function () {
     const card        = this.closest('.ai-agent-card');
@@ -635,17 +635,17 @@ document.querySelectorAll('.toggle-demo-btn').forEach(btn => {
   });
 });
 
-// ═══════════════════════════════════════════════════
+// ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 //  AGENT VIDEO FALLBACK
-//  • If the mp4 file loads → show video, hide placeholder.
-//  • If the mp4 file is missing (error) → keep placeholder.
-// ═══════════════════════════════════════════════════
+//  ΓÇó If the mp4 file loads ΓåÆ show video, hide placeholder.
+//  ΓÇó If the mp4 file is missing (error) ΓåÆ keep placeholder.
+// ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 document.querySelectorAll('.agent-video-wrap').forEach(wrap => {
   const video  = wrap.querySelector('.agent-video');
   const source = video ? video.querySelector('source') : null;
   if (!video || !source) return;
 
-  // Video has enough data to play — switch to video view
+  // Video has enough data to play ΓÇö switch to video view
   video.addEventListener('loadeddata', () => {
     wrap.classList.add('video-loaded');
   });
@@ -656,9 +656,9 @@ document.querySelectorAll('.agent-video-wrap').forEach(wrap => {
   });
 });
 
-// ═══════════════════════════════════════════════════
+// ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 //  AGENT TABS FILTER
-// ═══════════════════════════════════════════════════
+// ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ
 document.querySelectorAll('.agent-tab').forEach(tab => {
   tab.addEventListener('click', function() {
     // Update active tab styling
@@ -683,9 +683,11 @@ document.querySelectorAll('.agent-tab').forEach(tab => {
 });
 
 
-// ══════════════════════════════════════════════
+
+
+// ==================================================
 //  AI CONCIERGE CHAT WIDGET
-// ══════════════════════════════════════════════
+// ==================================================
 document.addEventListener('DOMContentLoaded', () => {
     const fabBtns = document.querySelectorAll('#fabBtn');
     const chatWidget = document.getElementById('aiChatWidget');
@@ -697,7 +699,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let hasOpened = false;
 
-    // Toggle Chat
     fabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             chatWidget.classList.toggle('active');
@@ -756,19 +757,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Conversation Flow
     function startConversation() {
         const typing = showTyping();
         setTimeout(() => {
             typing.remove();
             addBotMessage("Hi there! 👋 I'm AVEOL's AI Concierge.");
-            
             setTimeout(() => {
                 const type2 = showTyping();
                 setTimeout(() => {
                     type2.remove();
                     addBotMessage("I can help you explore how automation fits into your business. What are you looking to do today?");
-                    
                     setOptions([
                         { text: "I want to automate repetitive tasks", action: flowTasks },
                         { text: "I need a custom AI agent built", action: flowCustom },
@@ -776,7 +774,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     ]);
                 }, 1000);
             }, 500);
-            
         }, 800);
     }
 
@@ -788,7 +785,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 addBotMessage("Would you like to book a free 30-minute workflow audit with our engineering team?");
                 setOptions([
-                    { text: "Yes, book a free audit", action: () => window.location.href = "contact.html" },
+                    { text: "Yes, book a free audit", action: () => window.location.href = 'contact.html' },
                     { text: "Not right now", action: flowEnd }
                 ]);
             }, 1000);
@@ -802,8 +799,8 @@ document.addEventListener('DOMContentLoaded', () => {
             addBotMessage("We specialize in custom engineering. We build bespoke AI systems that integrate directly into your existing software stack (Slack, CRM, etc).");
             setTimeout(() => {
                 setOptions([
-                    { text: "See pricing", action: () => window.location.href = "pricing.html" },
-                    { text: "Let's discuss my project", action: () => window.location.href = "contact.html" }
+                    { text: "See pricing", action: () => window.location.href = 'pricing.html' },
+                    { text: "Let's discuss my project", action: () => window.location.href = 'contact.html' }
                 ]);
             }, 800);
         }, 1200);
@@ -815,7 +812,7 @@ document.addEventListener('DOMContentLoaded', () => {
             typing.remove();
             addBotMessage("Take your time! Feel free to check out our pre-built AI Agent templates. If you have any questions, I'm right here.");
             setOptions([
-                { text: "View AI Agents catalog", action: () => window.location.href = "ai-agents.html" }
+                { text: "View AI Agents catalog", action: () => window.location.href = 'ai-agents.html' }
             ]);
         }, 1000);
     }
@@ -826,6 +823,24 @@ document.addEventListener('DOMContentLoaded', () => {
             typing.remove();
             addBotMessage("No problem. Feel free to reach out to rajaditya81156@gmail.com if anything comes up!");
             clearOptions();
+        }, 1000);
+    }
+});
+
+// ==================================================
+//  SERVICE MODALS
+// ==================================================
+document.addEventListener('DOMContentLoaded', () => {
+  const overlay = document.getElementById('modalOverlay');
+  const modalInner = document.getElementById('modalInner');
+  const modalClose = document.getElementById('modalClose');
+
+  if (!overlay) return;
+
+  const modals = {
+    'modal-agents': {
+      tag: '// AI Agent Deployment',
+      title: 'Custom AI Agent Deployment',
       desc: 'We design, train, and deploy fully custom AI agents that autonomously execute your most time-consuming business tasks — 24 hours a day, 7 days a week, without human oversight.',
       features: [
         'End-to-end custom agent architecture tailored to your workflow',
@@ -871,7 +886,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'modal-multi': {
       tag: '// Multi-Agent Orchestration',
       title: 'Multi-Agent Orchestration Systems',
-      desc: 'This is the most advanced offering we provide. Instead of a single AI agent, we deploy a coordinated team of specialized agents that communicate, delegate tasks, and solve complex business problems as one unified intelligence layer.',
+      desc: 'Instead of a single AI agent, we deploy a coordinated team of specialized agents that communicate, delegate tasks, and solve complex business problems as one unified intelligence layer.',
       features: [
         'Architect and deploy a network of specialized sub-agents',
         'Central orchestrator routes tasks to the right agent automatically',
@@ -941,7 +956,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   }
 
-  // Attach click events to service cards
   document.querySelectorAll('[data-modal]').forEach(card => {
     card.addEventListener('click', () => openModal(card.dataset.modal));
   });
@@ -954,94 +968,4 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
   });
-})();
-
-// ══════════════════════════════════════════════
-//  SERVICE MODALS
-// ══════════════════════════════════════════════
-document.addEventListener('DOMContentLoaded', function () {
-  var overlay = document.getElementById('modalOverlay');
-  var modalInner = document.getElementById('modalInner');
-  var modalClose = document.getElementById('modalClose');
-  if (!overlay) return;
-
-  var modals = {
-    'modal-agents': {
-      tag: '// AI Agent Deployment',
-      title: 'Custom AI Agent Deployment',
-      desc: 'We design, train, and deploy fully custom AI agents that autonomously execute your most time-consuming business tasks 24/7, without human oversight.',
-      features: ['End-to-end custom agent architecture tailored to your workflow','Deployed directly into your existing tools (Slack, CRM, email)','Trained on your business data, SOPs, and brand voice','Continuous learning — improves with every interaction','Full handover with documentation and training'],
-      roi: '⚡ Clients typically reclaim 20-30 hours per week within the first month.',
-      cta: 'See Our AI Agent Catalog', link: 'ai-agents.html'
-    },
-    'modal-outreach': {
-      tag: '// Outreach & Lead Gen',
-      title: 'AI-Powered Outreach & Lead Generation',
-      desc: 'Stop manually prospecting. Our outreach agents identify your ideal clients, craft hyper-personalized messages, follow up automatically, and book qualified meetings on your calendar.',
-      features: ['Automated prospect research from LinkedIn, web, and CRMs','Personalized cold email and DM sequences generated by AI','Smart follow-up timing based on engagement signals','Direct calendar integration for frictionless booking','Full analytics: open rates, reply rates, and meetings booked'],
-      roi: '📈 Average of 3x more meetings booked with zero extra headcount.',
-      cta: 'Build My Outreach Agent', link: 'contact.html'
-    },
-    'modal-workflow': {
-      tag: '// Workflow Automation',
-      title: 'End-to-End Workflow Automation',
-      desc: 'We map your entire operational workflow and replace every manual step with an intelligent, automated pipeline.',
-      features: ['Full workflow audit to identify every manual bottleneck','Connect any tool: HubSpot, Notion, Zapier, Google Workspace','Automated data entry, file routing, and status updates','Real-time notifications and exception handling','One-time build, runs forever with minimal maintenance'],
-      roi: '⏱ Most clients save 20+ hours per week within 2 weeks of deployment.',
-      cta: 'Automate My Workflow', link: 'contact.html'
-    },
-    'modal-multi': {
-      tag: '// Multi-Agent Orchestration',
-      title: 'Multi-Agent Orchestration Systems',
-      desc: 'We deploy a coordinated team of specialized agents that communicate, delegate tasks, and solve complex business problems as one unified intelligence layer.',
-      features: ['Architect and deploy a network of specialized sub-agents','Central orchestrator routes tasks to the right agent automatically','Parallel processing — multiple workflows run simultaneously','Ideal for agencies, large ops teams, and complex pipelines','Built-in failover and error-recovery logic'],
-      roi: '🔗 Enables total operational synchronization across departments.',
-      cta: 'Request a Custom Build', link: 'contact.html'
-    },
-    'modal-dash': {
-      tag: '// Intelligence Dashboards',
-      title: 'AI Performance & Intelligence Dashboards',
-      desc: 'Every AI system we build comes with a real-time dashboard giving you complete visibility into what your agents are doing and what they have saved you.',
-      features: ['Live view: tasks completed, time saved, cost per action','ROI tracker — see the exact monetary value of your agents','Alert system for errors, anomalies, or performance drops','Exportable weekly reports for stakeholders','Custom KPIs based on your business goals'],
-      roi: '📊 100% visibility into your AI investment at all times.',
-      cta: 'Get My Intelligence Dashboard', link: 'contact.html'
-    },
-    'modal-integration': {
-      tag: '// System Integration',
-      title: 'Full Business System Integration',
-      desc: 'We plug your entire tech stack together into one seamless, automated ecosystem — no more switching between tabs or copying data manually.',
-      features: ['Integrates with 50+ tools: HubSpot, Salesforce, Notion, Slack, Gmail','Bi-directional data sync across all platforms','Webhook and API-based connections for real-time data flow','Custom middleware built for tools with no native integration','One unified data layer — no more siloed information'],
-      roi: '🔌 Eliminates tool-switching, data duplication, and manual syncing.',
-      cta: 'Connect My Tech Stack', link: 'contact.html'
-    }
-  };
-
-  function openModal(id) {
-    var m = modals[id];
-    if (!m) return;
-    var featureHTML = m.features.map(function(f){ return '<li>' + f + '</li>'; }).join('');
-    modalInner.innerHTML = '<div class="modal-tag">' + m.tag + '</div>'
-      + '<h2 class="modal-title">' + m.title + '</h2>'
-      + '<p class="modal-desc">' + m.desc + '</p>'
-      + '<div class="modal-divider"></div>'
-      + '<div class="modal-section-label">What is included</div>'
-      + '<ul class="modal-features">' + featureHTML + '</ul>'
-      + '<div class="modal-roi-strip">' + m.roi + '</div>'
-      + '<a href="' + m.link + '" class="modal-cta">' + m.cta + ' &rarr;</a>';
-    overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeModal() {
-    overlay.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  document.querySelectorAll('[data-modal]').forEach(function(card) {
-    card.addEventListener('click', function() { openModal(card.getAttribute('data-modal')); });
-  });
-
-  modalClose.addEventListener('click', closeModal);
-  overlay.addEventListener('click', function(e) { if (e.target === overlay) closeModal(); });
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
 });
