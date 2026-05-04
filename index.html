@@ -539,7 +539,7 @@
       <h2 class="reveal section-title">What AVEOL will<br /><span class="gold-text">build for your business</span>
       </h2>
       <div class="cards bento-grid">
-        <a href="ai-agents.html" class="card service-card reveal" style="text-decoration:none; display:block;">
+        <div class="card service-card reveal" data-modal="modal-agents" style="cursor:pointer;">
           <div class="card-img-wrap">
             <img src="card_ai_agent.png" alt="AI Agent Deployment" class="card-photo" loading="lazy" />
             <div class="service-roi-overlay">
@@ -555,9 +555,9 @@
             </div>
           </div>
           <div class="card-line"></div>
-        </a>
+        </div>
         
-        <a href="contact.html" class="card service-card reveal" style="text-decoration:none; display:block;">
+        <div class="card service-card reveal" data-modal="modal-outreach" style="cursor:pointer;">
           <div class="card-img-wrap">
             <img src="card_outreach.png" alt="Outreach & Lead Gen" class="card-photo" loading="lazy" />
             <div class="service-roi-overlay">
@@ -573,9 +573,9 @@
             </div>
           </div>
           <div class="card-line"></div>
-        </a>
+        </div>
         
-        <a href="contact.html" class="card service-card reveal" style="text-decoration:none; display:block;">
+        <div class="card service-card reveal" data-modal="modal-workflow" style="cursor:pointer;">
           <div class="card-img-wrap">
             <img src="card_workflow.png" alt="Workflow Automation" class="card-photo" loading="lazy" />
             <div class="service-roi-overlay">
@@ -591,9 +591,9 @@
             </div>
           </div>
           <div class="card-line"></div>
-        </a>
+        </div>
         
-        <a href="contact.html" class="card service-card reveal" style="text-decoration:none; display:block;">
+        <div class="card service-card reveal" data-modal="modal-multi" style="cursor:pointer;">
           <div class="card-img-wrap">
             <img src="card_multi_agent.png" alt="Multi-Agent Orchestration" class="card-photo" loading="lazy" />
             <div class="service-roi-overlay">
@@ -609,9 +609,9 @@
             </div>
           </div>
           <div class="card-line"></div>
-        </a>
+        </div>
         
-        <a href="contact.html" class="card service-card reveal" style="text-decoration:none; display:block;">
+        <div class="card service-card reveal" data-modal="modal-dash" style="cursor:pointer;">
           <div class="card-img-wrap">
             <img src="card_dashboards.png" alt="Intelligence Dashboards" class="card-photo" loading="lazy" />
             <div class="service-roi-overlay">
@@ -627,9 +627,9 @@
             </div>
           </div>
           <div class="card-line"></div>
-        </a>
+        </div>
         
-        <a href="contact.html" class="card service-card reveal" style="text-decoration:none; display:block;">
+        <div class="card service-card reveal" data-modal="modal-integration" style="cursor:pointer;">
           <div class="card-img-wrap">
             <img src="card_integration.png" alt="Full System Integration" class="card-photo" loading="lazy" />
             <div class="service-roi-overlay">
@@ -645,7 +645,7 @@
             </div>
           </div>
           <div class="card-line"></div>
-        </a>
+        </div>
       </div>
     </div>
   </section>
@@ -904,6 +904,17 @@
     </div>
     <div class="ai-chat-options" id="aiChatOptions">
       <!-- Options injected via JS -->
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- SERVICE MODALS                             -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box" id="modalBox">
+      <button class="modal-close" id="modalClose">&#x2715;</button>
+      <div class="modal-inner" id="modalInner"><!-- content injected by JS --></div>
     </div>
   </div>
 
