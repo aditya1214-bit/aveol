@@ -4603,3 +4603,1043 @@ img {
     transform: translateY(0);
   }
 }
+
+/* ══════════════════════════════════════════════
+   AI AGENTS GRID (Business Automation Section)
+══════════════════════════════════════════════ */
+/* Tab Navigation */
+.agent-tabs-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.agent-tab {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.agent-tab:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--text-light);
+}
+
+.agent-tab.active {
+  background: rgba(201, 162, 77, 0.1);
+  border-color: rgba(201, 162, 77, 0.4);
+  color: var(--gold);
+}
+
+.ai-agents-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  text-align: left;
+}
+
+/* Hide cards that are filtered out */
+.ai-agent-card.hidden {
+  display: none !important;
+}
+
+@media (min-width: 640px) {
+  .ai-agents-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .ai-agents-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+/* ══════════════════════════════════════════════
+   AI AGENT CARD — SaaS-grade hover & glow
+══════════════════════════════════════════════ */
+.ai-agent-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 32px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.4s ease,
+              transform   0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow  0.4s ease;
+}
+
+/* Gold top-line sweep */
+.ai-agent-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  transform: scaleX(0);
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1;
+}
+
+/* Inner radial glow — illuminates on hover */
+.ai-agent-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 0%,
+    rgba(201, 162, 77, 0.07) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ai-agent-card:hover::before { transform: scaleX(1); }
+.ai-agent-card:hover::after  { opacity: 1; }
+
+.ai-agent-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-5px);
+  box-shadow:
+    0 2px 0 rgba(201,162,77,0.15),
+    0 20px 48px rgba(0,0,0,0.50),
+    0 0 30px rgba(201,162,77,0.06);
+}
+
+/* Icon — dark pill container */
+.ai-agent-card .agent-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background: rgba(201, 162, 77, 0.07);
+  border: 1px solid rgba(201, 162, 77, 0.14);
+  color: var(--gold);
+  margin-bottom: 22px;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.ai-agent-card:hover .agent-icon {
+  background: rgba(201, 162, 77, 0.13);
+  border-color: rgba(201, 162, 77, 0.30);
+  transform: scale(1.06);
+}
+
+/* Agent name */
+.ai-agent-card .agent-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-light);
+  margin: 0 0 10px;
+  line-height: 1.3;
+  position: relative;
+  z-index: 1;
+}
+
+/* Description */
+.ai-agent-card .agent-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin: 0 0 22px;
+  flex-grow: 1;
+  position: relative;
+  z-index: 1;
+}
+
+/* Bottom divider — hidden, spacing handled by padding */
+.ai-agent-card .card-line { display: none; }
+
+/* ══════════════════════════════════════════════
+   AGENT TAG BADGES
+══════════════════════════════════════════════ */
+.agent-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.agent-tags .tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(201, 162, 77, 0.08);
+  border: 1px solid rgba(201, 162, 77, 0.20);
+  color: var(--gold);
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  line-height: 1;
+  white-space: nowrap;
+  transition: background  0.2s ease,
+              border-color 0.2s ease,
+              transform    0.2s ease,
+              box-shadow   0.2s ease;
+  cursor: default;
+  user-select: none;
+}
+
+.agent-tags .tag:hover {
+  background: rgba(201, 162, 77, 0.16);
+  border-color: rgba(201, 162, 77, 0.40);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(201, 162, 77, 0.12);
+}
+
+.agent-tags .tag::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  opacity: 0.65;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════════════
+   TOGGLE DEMO BUTTON — with rotating chevron
+══════════════════════════════════════════════ */
+.btn-agent-demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  z-index: 1;
+  transition: border-color 0.25s ease,
+              color       0.25s ease,
+              background  0.25s ease;
+  margin-top: 16px;
+}
+
+.btn-agent-demo .chevron {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-agent-demo.open .chevron {
+  transform: rotate(180deg);
+}
+
+.btn-agent-demo:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(201, 162, 77, 0.05);
+}
+
+/* ══════════════════════════════════════════════
+   AGENT DEMO SECTION — smooth max-height expand
+══════════════════════════════════════════════ */
+.agent-demo-section {
+  display: block;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 1px solid transparent;
+  transition:
+    max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity    0.35s ease,
+    margin-top 0.35s ease,
+    padding-top 0.35s ease,
+    border-color 0.35s ease;
+  /* inner flex layout applied via inner wrapper */
+}
+
+.agent-demo-section.open {
+  max-height: 900px;
+  opacity: 1;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top-color: var(--border);
+}
+
+/* Inner flex column — not animated directly */
+.agent-demo-section-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Workflow Diagram — pill nodes + connector line */
+.workflow-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+  padding: 14px 16px;
+  background: rgba(201, 162, 77, 0.03);
+  border: 1px solid var(--border);
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+
+.wf-step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-light);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  white-space: nowrap;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.wf-step:hover {
+  background: rgba(201, 162, 77, 0.08);
+  border-color: rgba(201, 162, 77, 0.25);
+}
+
+.wf-arrow {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(201,162,77,0.3), rgba(201,162,77,0.6), rgba(201,162,77,0.3));
+  position: relative;
+  margin: 0 2px;
+}
+
+.wf-arrow::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid rgba(201,162,77,0.7);
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+}
+
+/* Agent Video Wrap */
+.agent-video-wrap {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Video element — hidden until JS confirms it loaded */
+.agent-video {
+  display: none;
+  width: 100%;
+  border-radius: 6px;
+  background: #000;
+  outline: none;
+  border: 1px solid rgba(201, 162, 77, 0.2);
+}
+
+/* Show video when parent has .video-loaded class */
+.agent-video-wrap.video-loaded .agent-video {
+  display: block;
+}
+
+/* Hide placeholder when video loads */
+.agent-video-wrap.video-loaded .demo-placeholder {
+  display: none;
+}
+
+/* Demo Placeholder */
+.demo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(201, 162, 77, 0.05);
+  border: 1px dashed rgba(201, 162, 77, 0.3);
+  padding: 24px;
+  border-radius: 6px;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Demo Example */
+.demo-example {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ex-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.ex-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.ex-row:last-child {
+  margin-bottom: 0;
+}
+
+.ex-badge {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 4px;
+  border-radius: 3px;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.ex-badge.in {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+}
+
+.ex-badge.out {
+  background: rgba(201, 162, 77, 0.2);
+  color: var(--gold);
+}
+
+.ex-text {
+  color: var(--text-light);
+  line-height: 1.4;
+}
+
+/* Button style adjustment for toggle */
+button.btn-agent-demo {
+  cursor: pointer;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ══════════════════════════════════════════════
+   REQUEST THIS AI AGENT — CTA BUTTON
+══════════════════════════════════════════════ */
+.btn-request-agent {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px 20px;
+  margin-top: 4px;
+  text-decoration: none;
+
+  /* Colour — solid gold fill to stand out from the ghost toggle */
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright, #d4a943) 100%);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+
+  /* Typography */
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+
+  /* Elevation */
+  box-shadow:
+    0 4px 14px rgba(201, 162, 77, 0.35),
+    0 1px 3px  rgba(0, 0, 0, 0.3);
+
+  /* Transition */
+  transition:
+    transform     0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow    0.25s ease,
+    background    0.25s ease,
+    letter-spacing 0.25s ease;
+
+  /* Entrance animation matches section open */
+  animation: requestBtnIn 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes requestBtnIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn-request-agent svg {
+  flex-shrink: 0;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-request-agent:hover {
+  background: linear-gradient(135deg, var(--gold-bright, #d4a943) 0%, var(--gold) 100%);
+  transform: translateY(-2px);
+  letter-spacing: 0.6px;
+  box-shadow:
+    0 8px 24px rgba(201, 162, 77, 0.50),
+    0 2px 6px  rgba(0, 0, 0, 0.35),
+    0 0   0 1px rgba(201, 162, 77, 0.4);
+}
+
+.btn-request-agent:hover svg {
+  transform: translateX(3px);
+}
+
+.btn-request-agent:active {
+  transform: translateY(0);
+  box-shadow:
+    0 3px 10px rgba(201, 162, 77, 0.30),
+    0 1px 3px  rgba(0, 0, 0, 0.25);
+}
+
+/* Separator line above the CTA */
+.btn-request-agent::before {
+  content: none; /* override any global ::before — the margin-top handles spacing */
+}
+
+/* ══════════════════════════════════════════════
+   AGENTS SECTION CTA BANNER
+══════════════════════════════════════════════ */
+.agents-cta {
+  position: relative;
+  margin-top: 64px;
+  border-radius: 16px;
+  padding: 2px;                       /* border-gradient trick */
+  background: linear-gradient(
+    135deg,
+    rgba(201, 162, 77, 0.5)  0%,
+    rgba(201, 162, 77, 0.08) 50%,
+    rgba(201, 162, 77, 0.5)  100%
+  );
+  overflow: hidden;
+}
+
+/* Animated radial glow that sits behind the inner panel */
+.agents-cta-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 70% 60% at 50% 100%,
+    rgba(201, 162, 77, 0.18) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  animation: ctaGlowPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes ctaGlowPulse {
+  from { opacity: 0.6; }
+  to   { opacity: 1;   }
+}
+
+/* Inner content panel */
+.agents-cta-inner {
+  position: relative;
+  z-index: 1;
+  background: rgba(10, 10, 14, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 14px;
+  padding: 52px 40px 44px;
+  text-align: center;
+}
+
+/* Label */
+.agents-cta-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  opacity: 0.85;
+}
+
+/* Heading */
+.agents-cta-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  color: var(--text-light, #f5f5f5);
+  line-height: 1.25;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+
+/* Supporting text */
+.agents-cta-sub {
+  font-size: 15px;
+  color: var(--text-muted, #a0a0b0);
+  line-height: 1.65;
+  max-width: 480px;
+  margin: 0 auto 36px;
+}
+
+/* Primary CTA button */
+.agents-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 15px 36px;
+  border-radius: 8px;
+  text-decoration: none;
+
+  /* Gold fill */
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright, #d4a943) 100%);
+  color: #000;
+
+  /* Typography */
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+
+  /* Elevation */
+  box-shadow:
+    0 6px 20px rgba(201, 162, 77, 0.40),
+    0 2px 6px  rgba(0, 0, 0, 0.35);
+
+  transition:
+    transform      0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow     0.28s ease,
+    letter-spacing 0.28s ease;
+}
+
+.agents-cta-btn svg {
+  flex-shrink: 0;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.agents-cta-btn:hover {
+  transform: translateY(-3px);
+  letter-spacing: 0.5px;
+  box-shadow:
+    0 12px 32px rgba(201, 162, 77, 0.55),
+    0 4px  10px rgba(0, 0, 0, 0.40),
+    0 0    0 1px rgba(201, 162, 77, 0.5);
+}
+
+.agents-cta-btn:hover svg {
+  transform: translateX(4px);
+}
+
+.agents-cta-btn:active {
+  transform: translateY(0);
+  box-shadow:
+    0 4px 14px rgba(201, 162, 77, 0.30),
+    0 1px  4px rgba(0, 0, 0, 0.25);
+}
+
+/* Trust note */
+.agents-cta-note {
+  margin: 20px 0 0;
+  font-size: 12px;
+  color: var(--text-dim, #606070);
+  letter-spacing: 0.3px;
+}
+
+/* Responsive: tighten padding on mobile */
+@media (max-width: 600px) {
+  .agents-cta-inner {
+    padding: 36px 24px 32px;
+  }
+
+  .agents-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+
+/* ── SERVICE CARD PREMIUM EFFECTS ── */
+.service-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+  cursor: pointer;
+}
+
+.service-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(201, 162, 77, 0.1);
+  border-color: rgba(201, 162, 77, 0.5);
+}
+
+.service-card .card-img-wrap {
+  position: relative;
+}
+
+.service-roi-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(6, 6, 8, 0.85);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  padding: 24px;
+  text-align: center;
+}
+
+.service-card:hover .service-roi-overlay {
+  opacity: 1;
+}
+
+.service-roi-overlay span {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: var(--gold);
+  margin-bottom: 8px;
+  transform: translateY(10px);
+  transition: transform 0.4s ease;
+}
+
+.service-roi-overlay p {
+  font-size: 13px;
+  color: var(--text-light);
+  transform: translateY(10px);
+  transition: transform 0.4s ease;
+  transition-delay: 0.05s;
+}
+
+.service-card:hover .service-roi-overlay span,
+.service-card:hover .service-roi-overlay p {
+  transform: translateY(0);
+}
+
+.service-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 0 0 24px 0; /* Add some padding since original .card relies on children padding */
+}
+
+.service-action {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold);
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.4s ease;
+}
+
+.service-card:hover .service-action {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.service-action svg {
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-action svg {
+  transform: translateX(4px);
+}
+
+/* ── TRUSTED BY LOGOS ── */
+.trusted-by {
+  padding: 40px 24px;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  background: var(--surface);
+}
+
+.trusted-label {
+  font-size: 13px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+
+.trusted-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  opacity: 0.6;
+}
+
+.t-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-muted);
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+}
+
+.t-logo:hover {
+  filter: grayscale(0%);
+  color: var(--gold);
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .trusted-logos { gap: 24px; }
+  .t-logo { font-size: 16px; }
+}
+
+/* ── FLOATING ACTION BUTTON (FAB) ── */
+.fab-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: var(--gold);
+  color: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 24px rgba(201, 162, 77, 0.4);
+  z-index: 99;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+}
+
+.fab-btn:hover {
+  transform: scale(1.1) translateY(-4px);
+  box-shadow: 0 15px 30px rgba(201, 162, 77, 0.6);
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .fab-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 54px;
+    height: 54px;
+  }
+}
+
+
+/* ── AI CHAT WIDGET ── */
+.ai-chat-widget {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 360px;
+  max-height: 500px;
+  background: rgba(10, 10, 14, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(201, 162, 77, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.ai-chat-widget.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.ai-chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 16px 16px 0 0;
+}
+
+.ai-chat-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--gold);
+}
+
+.ai-status-dot {
+  width: 8px;
+  height: 8px;
+  background: #2ecc71;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #2ecc71;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4); }
+  70% { box-shadow: 0 0 0 6px rgba(46, 204, 113, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+}
+
+.ai-chat-close {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.ai-chat-close:hover { color: var(--text-light); }
+
+.ai-chat-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  max-height: 300px;
+}
+
+.ai-msg {
+  max-width: 85%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  animation: slideUp 0.3s ease forwards;
+}
+
+.ai-msg.bot {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-light);
+  border-top-left-radius: 4px;
+  align-self: flex-start;
+}
+
+.ai-msg.user {
+  background: rgba(201, 162, 77, 0.15);
+  color: var(--gold);
+  border-top-right-radius: 4px;
+  align-self: flex-end;
+}
+
+.ai-typing {
+  display: flex;
+  gap: 4px;
+  padding: 8px 0;
+}
+.ai-typing span {
+  width: 6px;
+  height: 6px;
+  background: var(--text-dim);
+  border-radius: 50%;
+  animation: typing 1.4s infinite ease-in-out both;
+}
+.ai-typing span:nth-child(1) { animation-delay: -0.32s; }
+.ai-typing span:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes typing {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ai-chat-options {
+  padding: 0 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ai-chat-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s;
+  animation: slideUp 0.3s ease forwards;
+}
+
+.ai-chat-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(201, 162, 77, 0.05);
+}
+
+@media (max-width: 768px) {
+  .ai-chat-widget {
+    bottom: 80px;
+    right: 20px;
+    width: calc(100% - 40px);
+  }
+}

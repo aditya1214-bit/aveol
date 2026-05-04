@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Agents — AVEOL</title>
+    <meta name="description" content="Explore our catalog of custom AI agents. From Customer Support to Financial Analysis, find the perfect AI solution to automate your business workflows." />
+    <link rel="icon" type="image/png" sizes="any" href="favicon.png" />
+    <link rel="apple-touch-icon" href="favicon.png" />
+    <meta name="theme-color" content="#060608" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="AVEOL.css">
+</head>
+
+<body>
+    <div class="tech-bg"></div>
+    <div class="noise"></div>
+    <div class="mouse-glow" id="glow"></div>
+    <canvas id="particles"></canvas>
+
+    <nav id="navbar">
+    <a href="index.html" class="logo">AVEOL</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="ai-agents.html" class="active">AI Agents</a>
+      <a href="index.html#services">Custom Engineering</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Book a Free Consultation</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">&#9776;</button>
+  </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+    <button class="close-menu" id="closeMenu">&#x2715;</button>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="ai-agents.html">AI Agents</a>
+    <a href="index.html#services">Custom Engineering</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn-primary" style="margin-top:24px;">Book a Free Consultation</a>
+  </div>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero" style="padding-bottom: 24px;">
+        <div class="page-hero-content reveal">
+            <div class="section-label">// Solutions Catalog</div>
+            <h1 class="page-hero-title">Custom <span class="gold-text">AI Agents</span></h1>
+            <p class="page-hero-sub">Explore our library of specialized AI agents designed to automate operations, accelerate sales, and eliminate repetitive tasks.</p>
+        </div>
+        <div class="orb orb-1"></div>
+    </section>
+
+    <!-- AI AGENTS SECTION -->
+    <section class="section section-dark" id="business-automation" style="padding-top: 0;">
+        <div class="section-inner">
+            <div class="text-center reveal">
+                <!-- Tabs Navigation -->
+                <div class="agent-tabs-nav" style="margin-top: -40px;">
+                    <button class="agent-tab active" data-filter="all">All Agents</button>
+                    <button class="agent-tab" data-filter="sales">Sales &amp; Marketing</button>
+                    <button class="agent-tab" data-filter="operations">Operations</button>
+                    <button class="agent-tab" data-filter="support">Customer Success</button>
+                </div>
+            </div>
+
+            <div class="ai-agents-grid reveal">
+                <!-- Card 1: Customer Support AI -->
+                <div class="ai-agent-card" data-category="support">
+                    <div class="agent-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18v-5M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18v-5M12 13h0"></path></svg>
+                    </div>
+                    <h3 class="agent-name">Customer Support AI</h3>
+                    <p class="agent-desc">Automatically handle customer inquiries, process returns, and answer common questions 24/7 without human intervention.</p>
+                    
+                    <div class="agent-tags">
+                        <span class="tag">Automation</span>
+                        <span class="tag">Chatbot</span>
+                        <span class="tag">24/7 Support</span>
+                    </div>
+
+                    <button class="btn-agent-demo toggle-demo-btn">
+                        View Workflow &amp; Demo
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+
+                    <div class="agent-demo-section">
+                        <div class="agent-demo-section-inner">
+                            <div class="workflow-diagram">
+                                <div class="wf-step">Input</div><div class="wf-arrow"></div>
+                                <div class="wf-step">Process</div><div class="wf-arrow"></div>
+                                <div class="wf-step">Decide</div><div class="wf-arrow"></div>
+                                <div class="wf-step">Output</div>
+                            </div>
+                            <div class="agent-video-wrap">
+                                <video class="agent-video" playsinline muted controls preload="none">
+                                    <source src="/video/customer-support.mp4" type="video/mp4" />
+                                </video>
+                                <div class="demo-placeholder">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                                    <span>Demo Coming Soon</span>
+                                </div>
+                            </div>
+                            <div class="demo-example">
+                                <div class="ex-label">Example</div>
+                                <div class="ex-io">
+                                    <div class="ex-row"><span class="ex-badge in">IN</span> <span class="ex-text">"Where is my order #12345?"</span></div>
+                                    <div class="ex-row"><span class="ex-badge out">OUT</span> <span class="ex-text">"It's out for delivery and will arrive by 5 PM today."</span></div>
+                                </div>
+                            </div>
+                            <a href="contact.html?agent=customer-support" class="btn-request-agent">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                Request This AI Agent
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Data Entry Automation AI -->
+                <div class="ai-agent-card" data-category="operations">
+                    <div class="agent-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                    </div>
+                    <h3 class="agent-name">Data Entry Automation AI</h3>
+                    <p class="agent-desc">Autonomously extract and process data from invoices, forms, and emails to update your databases instantly and accurately.</p>
+                    <div class="agent-tags">
+                        <span class="tag">Data Processing</span>
+                        <span class="tag">OCR</span>
+                        <span class="tag">Analytics</span>
+                    </div>
+                    <button class="btn-agent-demo toggle-demo-btn">
+                        View Workflow &amp; Demo
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="agent-demo-section">
+                        <div class="agent-demo-section-inner">
+                            <div class="workflow-diagram">
+                                <div class="wf-step">Input</div><div class="wf-arrow"></div>
+                                <div class="wf-step">Process</div><div class="wf-arrow"></div>
+                                <div class="wf-step">Decide</div><div class="wf-arrow"></div>
+                                <div class="wf-step">Output</div>
+                            </div>
+                            <div class="agent-video-wrap">
+                                <video class="agent-video" playsinline muted controls preload="none">
+                                    <source src="/video/data-entry.mp4" type="video/mp4" />
+                                </video>
+                                <div class="demo-placeholder">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                                    <span>Demo Coming Soon</span>
+                                </div>
+                            </div>
+                            <div class="demo-example">
+                                <div class="ex-label">Example</div>
+                                <div class="ex-io">
+                                    <div class="ex-row"><span class="ex-badge in">IN</span> <span class="ex-text">PDF Invoice received via email.</span></div>
+                                    <div class="ex-row"><span class="ex-badge out">OUT</span> <span class="ex-text">Data extracted &amp; synced to CRM instantly.</span></div>
+                                </div>
+                            </div>
+                            <a href="contact.html?agent=data-entry" class="btn-request-agent">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                Request This AI Agent
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Lead Qualification AI -->
+                <div class="ai-agent-card" data-category="sales">
+                    <div class="agent-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                    </div>
+                    <h3 class="agent-name">Lead Qualification AI</h3>
+                    <p class="agent-desc">Engage with prospects, ask qualifying questions, and automatically book meetings directly on your sales team's calendar.</p>
+                    <div class="agent-tags">
+                        <span class="tag">Lead Gen</span>
+                        <span class="tag">CRM</span>
+                        <span class="tag">Sales</span>
+                    </div>
+                    <button class="btn-agent-demo toggle-demo-btn">
+                        View Workflow &amp; Demo
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="agent-demo-section">
+                        <div class="agent-demo-section-inner">
+                            <div class="workflow-diagram">
+                                <div class="wf-step">Input</div><div class="wf-arrow"></div>
+                                <div class="wf-step">Process</div><div class="wf-arrow"></div>
+                                <div class="wf-step">Decide</div><div class="wf-arrow"></div>
+                                <div class="wf-step">Output</div>
+                            </div>
+                            <div class="agent-video-wrap">
+                                <video class="agent-video" playsinline muted controls preload="none">
+                                    <source src="/video/lead-qualification.mp4" type="video/mp4" />
+                                </video>
+                                <div class="demo-placeholder">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                                    <span>Demo Coming Soon</span>
+                                </div>
+                            </div>
+                            <div class="demo-example">
+                                <div class="ex-label">Example</div>
+                                <div class="ex-io">
+                                    <div class="ex-row"><span class="ex-badge in">IN</span> <span class="ex-text">"I need a marketing AI solution."</span></div>
+                                    <div class="ex-row"><span class="ex-badge out">OUT</span> <span class="ex-text">"Great! Let's book a call. What's your budget?"</span></div>
+                                </div>
+                            </div>
+                            <a href="contact.html?agent=lead-qualification" class="btn-request-agent">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                Request This AI Agent
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Content Generation AI -->
+                <div class="ai-agent-card" data-category="sales">
+                    <div class="agent-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                    </div>
+                    <h3 class="agent-name">Content Generation AI</h3>
+                    <p class="agent-desc">Automatically research and draft SEO-optimized blog posts, social media updates, and marketing copy tailored to your brand voice.</p>
+                    <div class="agent-tags">
+                        <span class="tag">Marketing</span>
+                        <span class="tag">SEO</span>
+                        <span class="tag">Copywriting</span>
+                    </div>
+                    <button class="btn-agent-demo toggle-demo-btn">
+                        View Workflow &amp; Demo
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="agent-demo-section">
+                        <div class="agent-demo-section-inner">
+                            <div class="workflow-diagram">
+                                <div class="wf-step">Topic</div><div class="wf-arrow"></div>
+                                <div class="wf-step">Research</div><div class="wf-arrow"></div>
+                                <div class="wf-step">Draft</div><div class="wf-arrow"></div>
+                                <div class="wf-step">Publish</div>
+                            </div>
+                            <div class="agent-video-wrap">
+                                <video class="agent-video" playsinline muted controls preload="none">
+                                    <source src="/video/content-gen.mp4" type="video/mp4" />
+                                </video>
+                                <div class="demo-placeholder">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                                    <span>Demo Coming Soon</span>
+                                </div>
+                            </div>
+                            <div class="demo-example">
+                                <div class="ex-label">Example</div>
+                                <div class="ex-io">
+                                    <div class="ex-row"><span class="ex-badge in">IN</span> <span class="ex-text">Topic: "Benefits of AI in 2026"</span></div>
+                                    <div class="ex-row"><span class="ex-badge out">OUT</span> <span class="ex-text">1,500 word SEO article formatted in Markdown.</span></div>
+                                </div>
+                            </div>
+                            <a href="contact.html?agent=content-generation" class="btn-request-agent">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                Request This AI Agent
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: HR Onboarding AI -->
+                <div class="ai-agent-card" data-category="operations">
+                    <div class="agent-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </div>
+                    <h3 class="agent-name">HR Onboarding AI</h3>
+                    <p class="agent-desc">Streamline new hire onboarding by automatically sending welcome packets, collecting forms, and setting up IT accounts.</p>
+                    <div class="agent-tags">
+                        <span class="tag">HR</span>
+                        <span class="tag">Compliance</span>
+                        <span class="tag">Internal</span>
+                    </div>
+                    <button class="btn-agent-demo toggle-demo-btn">
+                        View Workflow &amp; Demo
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="agent-demo-section">
+                        <div class="agent-demo-section-inner">
+                            <div class="workflow-diagram">
+                                <div class="wf-step">Hire</div><div class="wf-arrow"></div>
+                                <div class="wf-step">Forms</div><div class="wf-arrow"></div>
+                                <div class="wf-step">Accounts</div><div class="wf-arrow"></div>
+                                <div class="wf-step">Ready</div>
+                            </div>
+                            <div class="agent-video-wrap">
+                                <video class="agent-video" playsinline muted controls preload="none">
+                                    <source src="/video/hr-onboarding.mp4" type="video/mp4" />
+                                </video>
+                                <div class="demo-placeholder">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                                    <span>Demo Coming Soon</span>
+                                </div>
+                            </div>
+                            <div class="demo-example">
+                                <div class="ex-label">Example</div>
+                                <div class="ex-io">
+                                    <div class="ex-row"><span class="ex-badge in">IN</span> <span class="ex-text">Offer letter signed by John.</span></div>
+                                    <div class="ex-row"><span class="ex-badge out">OUT</span> <span class="ex-text">Slack, Email, and Jira accounts auto-provisioned.</span></div>
+                                </div>
+                            </div>
+                            <a href="contact.html?agent=hr-onboarding" class="btn-request-agent">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                Request This AI Agent
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: Financial Analysis AI -->
+                <div class="ai-agent-card" data-category="operations">
+                    <div class="agent-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    </div>
+                    <h3 class="agent-name">Financial Analysis AI</h3>
+                    <p class="agent-desc">Monitor transactions, reconcile accounts, and generate executive financial summaries directly from your accounting software.</p>
+                    <div class="agent-tags">
+                        <span class="tag">Finance</span>
+                        <span class="tag">Reporting</span>
+                        <span class="tag">Data</span>
+                    </div>
+                    <button class="btn-agent-demo toggle-demo-btn">
+                        View Workflow &amp; Demo
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </button>
+                    <div class="agent-demo-section">
+                        <div class="agent-demo-section-inner">
+                            <div class="workflow-diagram">
+                                <div class="wf-step">Sync</div><div class="wf-arrow"></div>
+                                <div class="wf-step">Analyze</div><div class="wf-arrow"></div>
+                                <div class="wf-step">Report</div><div class="wf-arrow"></div>
+                                <div class="wf-step">Send</div>
+                            </div>
+                            <div class="agent-video-wrap">
+                                <video class="agent-video" playsinline muted controls preload="none">
+                                    <source src="/video/finance.mp4" type="video/mp4" />
+                                </video>
+                                <div class="demo-placeholder">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                                    <span>Demo Coming Soon</span>
+                                </div>
+                            </div>
+                            <div class="demo-example">
+                                <div class="ex-label">Example</div>
+                                <div class="ex-io">
+                                    <div class="ex-row"><span class="ex-badge in">IN</span> <span class="ex-text">"Generate Q3 P&L summary."</span></div>
+                                    <div class="ex-row"><span class="ex-badge out">OUT</span> <span class="ex-text">PDF summary generated and emailed to stakeholders.</span></div>
+                                </div>
+                            </div>
+                            <a href="contact.html?agent=financial-analysis" class="btn-request-agent">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                Request This AI Agent
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- AGENTS SECTION CTA -->
+            <div class="agents-cta reveal" style="margin-top: 64px;">
+                <div class="agents-cta-glow"></div>
+                <div class="agents-cta-inner">
+                    <div class="agents-cta-label">// Custom Build</div>
+                    <h3 class="agents-cta-heading">Need a custom AI agent<br />for your business?</h3>
+                    <p class="agents-cta-sub">Every business is different. We scope, build, and deploy a bespoke AI agent around your exact workflows — not a template.</p>
+                    <a href="contact.html" class="btn-primary agents-cta-btn">Request Custom Solution →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-logo">AVEOL</div>
+            <p class="footer-tag">Custom AI agents built to automate your business operations.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="ai-agents.html">AI Agents</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html" style="color:var(--text-dim); margin-left: 16px;">Privacy Policy</a>
+            </div>
+            <div class="footer-links" style="margin-top:16px;">
+                <a href="mailto:rajaditya81156@gmail.com">📧 rajaditya81156@gmail.com</a>
+                <a href="https://www.linkedin.com/in/aditya-kumar-518580319" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
+            </div>
+            <p class="footer-copy">© 2026 AVEOL — All Rights Reserved · Based in India</p>
+        </div>
+    </footer>
+
+    <script src="AVEOL.js"></script>
+
+  <!-- FLOATING ACTION BUTTON -->
+  <a href="javascript:void(0)" class="fab-btn" id="fabBtn">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+  </a>
+
+
+  <!-- AI CHAT WIDGET -->
+  <div class="ai-chat-widget" id="aiChatWidget">
+    <div class="ai-chat-header">
+      <div class="ai-chat-title">
+        <div class="ai-status-dot"></div>
+        AVEOL Concierge
+      </div>
+      <button class="ai-chat-close" id="aiChatClose">&#x2715;</button>
+    </div>
+    <div class="ai-chat-body" id="aiChatBody">
+      <!-- Chat messages will be injected here via JS -->
+    </div>
+    <div class="ai-chat-options" id="aiChatOptions">
+      <!-- Options injected via JS -->
+    </div>
+  </div>
+
+</body>
+</html>

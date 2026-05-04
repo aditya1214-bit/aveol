@@ -76,7 +76,8 @@
     <div class="nav-links">
       <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
-      <a href="index.html#services">Services</a>
+      <a href="ai-agents.html">AI Agents</a>
+      <a href="index.html#services">Custom Engineering</a>
       <a href="pricing.html">Pricing</a>
       <a href="contact.html">Contact</a>
     </div>
@@ -89,7 +90,8 @@
     <button class="close-menu" id="closeMenu">&#x2715;</button>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="index.html#services">Services</a>
+    <a href="ai-agents.html">AI Agents</a>
+    <a href="index.html#services">Custom Engineering</a>
     <a href="pricing.html">Pricing</a>
     <a href="contact.html">Contact</a>
     <a href="contact.html" class="btn-primary" style="margin-top:24px;">Book a Free Consultation</a>
@@ -136,6 +138,19 @@
     <div class="orb orb-3"></div>
   </section>
 
+  <!-- TRUSTED BY -->
+  <div class="trusted-by reveal">
+    <p class="trusted-label">Built for forward-thinking industries to automate growth</p>
+    <div class="trusted-logos">
+      <span class="t-logo">Real Estate</span>
+      <span class="t-logo">Marketing Agencies</span>
+      <span class="t-logo">E-Commerce</span>
+      <span class="t-logo">Consulting Firms</span>
+      <span class="t-logo">Healthcare</span>
+    </div>
+  </div>
+
+
   <!-- HOW IT WORKS -->
   <section class="section section-dark" id="how">
     <div class="section-inner">
@@ -158,6 +173,270 @@
           <div class="step-num">03</div>
           <h3>Get your custom AI agent</h3>
           <p>We build and hand over an AI agent trained for your specific business. You start saving hours within days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI CALCULATOR -->
+  <section class="section" id="roi-calculator">
+    <div class="section-inner">
+      <div class="text-center reveal">
+        <div class="section-label">// ROI Estimator</div>
+        <h2 class="section-title">What could automation<br /><span class="gold-text">save your business?</span></h2>
+        <p class="section-text">Adjust the sliders below to estimate how much time and money AI agent automation could
+          save your team each year.</p>
+      </div>
+
+      <div class="roi-wrap reveal">
+        <div class="roi-inputs">
+          <div class="roi-input-group">
+            <div class="roi-label-row">
+              <label>People doing repetitive manual work</label>
+              <span class="roi-val-badge" id="teamSizeVal">5</span>
+            </div>
+            <input type="range" class="roi-slider" id="teamSize" min="1" max="50" value="5" />
+            <div class="roi-range-labels"><span>1</span><span>50</span></div>
+          </div>
+
+          <div class="roi-input-group">
+            <div class="roi-label-row">
+              <label>Hours/week per person on manual tasks</label>
+              <span class="roi-val-badge" id="hoursVal">15</span>
+            </div>
+            <input type="range" class="roi-slider" id="hoursPerWeek" min="1" max="40" value="15" />
+            <div class="roi-range-labels"><span>1h</span><span>40h</span></div>
+          </div>
+
+          <div class="roi-input-group">
+            <div class="roi-label-row">
+              <label>Average hourly cost per employee (INR)</label>
+              <span class="roi-val-badge" id="hourlyRateVal">₹800</span>
+            </div>
+            <input type="range" class="roi-slider" id="hourlyRate" min="200" max="3000" value="800" step="100" />
+            <div class="roi-range-labels"><span>₹200</span><span>₹3,000</span></div>
+          </div>
+
+          <div class="roi-input-group">
+            <div class="roi-label-row">
+              <label>Estimated automation coverage</label>
+              <span class="roi-val-badge" id="coverageVal">70%</span>
+            </div>
+            <input type="range" class="roi-slider" id="coverage" min="30" max="90" value="70" step="5" />
+            <div class="roi-range-labels"><span>30%</span><span>90%</span></div>
+          </div>
+        </div>
+
+        <div class="roi-results">
+          <div class="roi-result-card">
+            <div class="roi-result-num" id="weeklyHours">52<span>h</span></div>
+            <div class="roi-result-label">Hours saved per week</div>
+          </div>
+          <div class="roi-divider"></div>
+          <div class="roi-result-card">
+            <div class="roi-result-num" id="annualSaving">₹21.8L</div>
+            <div class="roi-result-label">Estimated annual saving</div>
+          </div>
+          <div class="roi-divider"></div>
+          <div class="roi-result-card">
+            <div class="roi-result-num" id="fteEquiv">1.3<span>x</span></div>
+            <div class="roi-result-label">FTE headcount equivalent</div>
+          </div>
+          <p class="roi-disclaimer">*Estimates based on projected automation efficiency for service-based operations. Actual results will vary by workflow complexity and business type.</p>
+          <a href="contact.html" class="btn-primary full-width"
+            style="margin-top:28px; text-align:center; display:block;">Book a Free Consultation →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI AGENTS FOR BUSINESS AUTOMATION -->
+  <section class="section section-dark" id="business-automation">
+    <div class="section-inner">
+      <div class="text-center reveal">
+        <div class="section-label">// What We Do</div>
+        <h2 class="section-title">
+          AI Agents for<br />
+          <span class="gold-text">Business Automation</span>
+        </h2>
+        <p class="section-text" style="max-width: 580px; margin: 0 auto 40px;">
+          Custom AI solutions to automate repetitive workflows for businesses — so your team focuses on what actually matters.
+        </p>
+      </div>
+
+      <div class="ai-agents-grid reveal">
+        <!-- Card 1: Customer Support AI -->
+        <div class="ai-agent-card" data-category="support">
+          <div class="agent-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18v-5M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18v-5M12 13h0"></path></svg>
+          </div>
+          <h3 class="agent-name">Customer Support AI</h3>
+          <p class="agent-desc">Automatically handle customer inquiries, process returns, and answer common questions 24/7 without human intervention.</p>
+          
+          <div class="agent-tags">
+            <span class="tag">Automation</span>
+            <span class="tag">Chatbot</span>
+            <span class="tag">24/7 Support</span>
+          </div>
+
+          <button class="btn-agent-demo toggle-demo-btn">
+            View Workflow &amp; Demo
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+
+          <div class="agent-demo-section">
+            <div class="agent-demo-section-inner">
+              <div class="workflow-diagram">
+                <div class="wf-step">Input</div><div class="wf-arrow"></div>
+                <div class="wf-step">Process</div><div class="wf-arrow"></div>
+                <div class="wf-step">Decide</div><div class="wf-arrow"></div>
+                <div class="wf-step">Output</div>
+              </div>
+
+              <div class="agent-video-wrap">
+                <video class="agent-video" playsinline muted controls preload="none">
+                  <source src="/video/customer-support.mp4" type="video/mp4" />
+                </video>
+                <div class="demo-placeholder">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                  <span>Demo Coming Soon</span>
+                </div>
+              </div>
+
+              <div class="demo-example">
+                <div class="ex-label">Example</div>
+                <div class="ex-io">
+                  <div class="ex-row"><span class="ex-badge in">IN</span> <span class="ex-text">"Where is my order #12345?"</span></div>
+                  <div class="ex-row"><span class="ex-badge out">OUT</span> <span class="ex-text">"It's out for delivery and will arrive by 5 PM today."</span></div>
+                </div>
+              </div>
+
+              <a href="contact.html?agent=customer-support" class="btn-request-agent">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                Request This AI Agent
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Data Entry Automation AI -->
+        <div class="ai-agent-card" data-category="operations">
+          <div class="agent-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          </div>
+          <h3 class="agent-name">Data Entry Automation AI</h3>
+          <p class="agent-desc">Autonomously extract and process data from invoices, forms, and emails to update your databases instantly and accurately.</p>
+          
+          <div class="agent-tags">
+            <span class="tag">Data Processing</span>
+            <span class="tag">OCR</span>
+            <span class="tag">Analytics</span>
+          </div>
+
+          <button class="btn-agent-demo toggle-demo-btn">
+            View Workflow &amp; Demo
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+
+          <div class="agent-demo-section">
+            <div class="agent-demo-section-inner">
+              <div class="workflow-diagram">
+                <div class="wf-step">Input</div><div class="wf-arrow"></div>
+                <div class="wf-step">Process</div><div class="wf-arrow"></div>
+                <div class="wf-step">Decide</div><div class="wf-arrow"></div>
+                <div class="wf-step">Output</div>
+              </div>
+
+              <div class="agent-video-wrap">
+                <video class="agent-video" playsinline muted controls preload="none">
+                  <source src="/video/data-entry.mp4" type="video/mp4" />
+                </video>
+                <div class="demo-placeholder">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                  <span>Demo Coming Soon</span>
+                </div>
+              </div>
+
+              <div class="demo-example">
+                <div class="ex-label">Example</div>
+                <div class="ex-io">
+                  <div class="ex-row"><span class="ex-badge in">IN</span> <span class="ex-text">PDF Invoice received via email.</span></div>
+                  <div class="ex-row"><span class="ex-badge out">OUT</span> <span class="ex-text">Data extracted &amp; synced to CRM instantly.</span></div>
+                </div>
+              </div>
+
+              <a href="contact.html?agent=data-entry" class="btn-request-agent">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                Request This AI Agent
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Lead Qualification AI -->
+        <div class="ai-agent-card" data-category="sales">
+          <div class="agent-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+          </div>
+          <h3 class="agent-name">Lead Qualification AI</h3>
+          <p class="agent-desc">Engage with prospects, ask qualifying questions, and automatically book meetings directly on your sales team's calendar.</p>
+          
+          <div class="agent-tags">
+            <span class="tag">Lead Gen</span>
+            <span class="tag">CRM</span>
+            <span class="tag">Sales</span>
+          </div>
+
+          <button class="btn-agent-demo toggle-demo-btn">
+            View Workflow &amp; Demo
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+
+          <div class="agent-demo-section">
+            <div class="agent-demo-section-inner">
+              <div class="workflow-diagram">
+                <div class="wf-step">Input</div><div class="wf-arrow"></div>
+                <div class="wf-step">Process</div><div class="wf-arrow"></div>
+                <div class="wf-step">Decide</div><div class="wf-arrow"></div>
+                <div class="wf-step">Output</div>
+              </div>
+
+              <div class="agent-video-wrap">
+                <video class="agent-video" playsinline muted controls preload="none">
+                  <source src="/video/lead-qualification.mp4" type="video/mp4" />
+                </video>
+                <div class="demo-placeholder">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                  <span>Demo Coming Soon</span>
+                </div>
+              </div>
+
+              <div class="demo-example">
+                <div class="ex-label">Example</div>
+                <div class="ex-io">
+                  <div class="ex-row"><span class="ex-badge in">IN</span> <span class="ex-text">"I need a marketing AI solution."</span></div>
+                  <div class="ex-row"><span class="ex-badge out">OUT</span> <span class="ex-text">"Great! Let's book a call. What's your budget?"</span></div>
+                </div>
+              </div>
+
+              <a href="contact.html?agent=lead-qualification" class="btn-request-agent">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                Request This AI Agent
+              </a>
+            </div>
+          </div>
+      </div>
+
+      <!-- AGENTS SECTION CTA -->
+      <div class="agents-cta reveal">
+        <div class="agents-cta-glow"></div>
+        <div class="agents-cta-inner">
+          <div class="agents-cta-label">// Catalog</div>
+          <h3 class="agents-cta-heading">Explore our full library<br />of AI Agents</h3>
+          <p class="agents-cta-sub">We build agents for sales, operations, HR, finance, and customer success.</p>
+          <a href="ai-agents.html" class="agents-cta-btn">
+            View All AI Agents →
+          </a>
         </div>
       </div>
     </div>
@@ -256,60 +535,121 @@
   <!-- SERVICES -->
   <section id="services" class="section">
     <div class="section-inner">
-      <div class="reveal section-label">// Our Services</div>
-      <h2 class="reveal section-title">What AVEOL will<br /><span class="gold-text">automate for your business</span>
+      <div class="reveal section-label">// Custom Engineering</div>
+      <h2 class="reveal section-title">What AVEOL will<br /><span class="gold-text">build for your business</span>
       </h2>
-      <div class="cards">
-        <div class="card reveal">
+      <div class="cards bento-grid">
+        <div class="card service-card reveal">
           <div class="card-img-wrap">
             <img src="card_ai_agent.png" alt="AI Agent Deployment" class="card-photo" loading="lazy" />
+            <div class="service-roi-overlay">
+              <span>ROI: 24/7 Operations</span>
+              <p>Replaces manual data entry & task switching.</p>
+            </div>
           </div>
-          <h3>AI Agent Deployment</h3>
-          <p>Custom agents that autonomously execute complex business tasks around the clock — no babysitting required.
-          </p>
+          <div class="service-content">
+            <h3>AI Agent Deployment</h3>
+            <p>Custom agents that autonomously execute complex business tasks around the clock — no babysitting required.</p>
+            <div class="service-action">
+              <span class="learn-more-text">Learn More</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </div>
+          </div>
           <div class="card-line"></div>
         </div>
-        <div class="card reveal">
+        
+        <div class="card service-card reveal">
           <div class="card-img-wrap">
             <img src="card_outreach.png" alt="Outreach & Lead Gen" class="card-photo" loading="lazy" />
+            <div class="service-roi-overlay">
+              <span>ROI: 3x Meeting Bookings</span>
+              <p>Autopilot prospecting & follow-ups.</p>
+            </div>
           </div>
-          <h3>Outreach & Lead Gen</h3>
-          <p>Agents that find prospects, craft personalized messages, follow up, and book meetings on your calendar.</p>
+          <div class="service-content">
+            <h3>Outreach & Lead Gen</h3>
+            <p>Agents that find prospects, craft personalized messages, follow up, and book meetings on your calendar.</p>
+            <div class="service-action">
+              <span class="learn-more-text">Learn More</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </div>
+          </div>
           <div class="card-line"></div>
         </div>
-        <div class="card reveal">
+        
+        <div class="card service-card reveal">
           <div class="card-img-wrap">
             <img src="card_workflow.png" alt="Workflow Automation" class="card-photo" loading="lazy" />
+            <div class="service-roi-overlay">
+              <span>ROI: Save 20+ Hours/Wk</span>
+              <p>Zero manual data entry.</p>
+            </div>
           </div>
-          <h3>Workflow Automation</h3>
-          <p>Eliminate every repetitive internal task — from onboarding to reporting — with intelligent, connected
-            pipelines.</p>
+          <div class="service-content">
+            <h3>Workflow Automation</h3>
+            <p>Eliminate every repetitive internal task — from onboarding to reporting — with intelligent, connected pipelines.</p>
+            <div class="service-action">
+              <span class="learn-more-text">Learn More</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </div>
+          </div>
           <div class="card-line"></div>
         </div>
-        <div class="card reveal">
+        
+        <div class="card service-card reveal">
           <div class="card-img-wrap">
             <img src="card_multi_agent.png" alt="Multi-Agent Orchestration" class="card-photo" loading="lazy" />
+            <div class="service-roi-overlay">
+              <span>ROI: Total Operations Sync</span>
+              <p>Multiple AIs working together seamlessly.</p>
+            </div>
           </div>
-          <h3>Multi-Agent Orchestration</h3>
-          <p>Deploy a team of specialized agents that collaborate, delegate, and solve problems as one single
-            intelligence layer.</p>
+          <div class="service-content">
+            <h3>Multi-Agent Orchestration</h3>
+            <p>Deploy a team of specialized agents that collaborate, delegate, and solve problems as one single intelligence layer.</p>
+            <div class="service-action">
+              <span class="learn-more-text">Learn More</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </div>
+          </div>
           <div class="card-line"></div>
         </div>
-        <div class="card reveal">
+        
+        <div class="card service-card reveal">
           <div class="card-img-wrap">
             <img src="card_dashboards.png" alt="Intelligence Dashboards" class="card-photo" loading="lazy" />
+            <div class="service-roi-overlay">
+              <span>ROI: 100% Visibility</span>
+              <p>Track agent performance & cost savings.</p>
+            </div>
           </div>
-          <h3>Intelligence Dashboards</h3>
-          <p>Real-time insights on agent performance, tasks completed, time saved, and ROI — always at your fingertips.
-          </p>
+          <div class="service-content">
+            <h3>Intelligence Dashboards</h3>
+            <p>Real-time insights on agent performance, tasks completed, time saved, and ROI — always at your fingertips.</p>
+            <div class="service-action">
+              <span class="learn-more-text">Learn More</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </div>
+          </div>
           <div class="card-line"></div>
         </div>
-        <div class="card reveal">
+        
+        <div class="card service-card reveal">
           <div class="card-img-wrap">
             <img src="card_integration.png" alt="Full System Integration" class="card-photo" loading="lazy" />
+            <div class="service-roi-overlay">
+              <span>ROI: Seamless Ecosystem</span>
+              <p>Works with your existing software stack.</p>
+            </div>
           </div>
-          <h3>Full System Integration</h3>
-          <p>Plug your CRM, Slack, email, and any tool you use into one seamless, automated ecosystem.</p>
+          <div class="service-content">
+            <h3>Full System Integration</h3>
+            <p>Plug your CRM, Slack, email, and any tool you use into one seamless, automated ecosystem.</p>
+            <div class="service-action">
+              <span class="learn-more-text">Learn More</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </div>
+          </div>
           <div class="card-line"></div>
         </div>
       </div>
@@ -401,77 +741,7 @@
     </div>
   </section>
 
-  <!-- ROI CALCULATOR -->
-  <section class="section" id="roi-calculator">
-    <div class="section-inner">
-      <div class="text-center reveal">
-        <div class="section-label">// ROI Estimator</div>
-        <h2 class="section-title">What could automation<br /><span class="gold-text">save your business?</span></h2>
-        <p class="section-text">Adjust the sliders below to estimate how much time and money AI agent automation could
-          save your team each year.</p>
-      </div>
-
-      <div class="roi-wrap reveal">
-        <div class="roi-inputs">
-          <div class="roi-input-group">
-            <div class="roi-label-row">
-              <label>People doing repetitive manual work</label>
-              <span class="roi-val-badge" id="teamSizeVal">5</span>
-            </div>
-            <input type="range" class="roi-slider" id="teamSize" min="1" max="50" value="5" />
-            <div class="roi-range-labels"><span>1</span><span>50</span></div>
-          </div>
-
-          <div class="roi-input-group">
-            <div class="roi-label-row">
-              <label>Hours/week per person on manual tasks</label>
-              <span class="roi-val-badge" id="hoursVal">15</span>
-            </div>
-            <input type="range" class="roi-slider" id="hoursPerWeek" min="1" max="40" value="15" />
-            <div class="roi-range-labels"><span>1h</span><span>40h</span></div>
-          </div>
-
-          <div class="roi-input-group">
-            <div class="roi-label-row">
-              <label>Average hourly cost per employee (INR)</label>
-              <span class="roi-val-badge" id="hourlyRateVal">₹800</span>
-            </div>
-            <input type="range" class="roi-slider" id="hourlyRate" min="200" max="3000" value="800" step="100" />
-            <div class="roi-range-labels"><span>₹200</span><span>₹3,000</span></div>
-          </div>
-
-          <div class="roi-input-group">
-            <div class="roi-label-row">
-              <label>Estimated automation coverage</label>
-              <span class="roi-val-badge" id="coverageVal">70%</span>
-            </div>
-            <input type="range" class="roi-slider" id="coverage" min="30" max="90" value="70" step="5" />
-            <div class="roi-range-labels"><span>30%</span><span>90%</span></div>
-          </div>
-        </div>
-
-        <div class="roi-results">
-          <div class="roi-result-card">
-            <div class="roi-result-num" id="weeklyHours">52<span>h</span></div>
-            <div class="roi-result-label">Hours saved per week</div>
-          </div>
-          <div class="roi-divider"></div>
-          <div class="roi-result-card">
-            <div class="roi-result-num" id="annualSaving">₹21.8L</div>
-            <div class="roi-result-label">Estimated annual saving</div>
-          </div>
-          <div class="roi-divider"></div>
-          <div class="roi-result-card">
-            <div class="roi-result-num" id="fteEquiv">1.3<span>x</span></div>
-            <div class="roi-result-label">FTE headcount equivalent</div>
-          </div>
-          <p class="roi-disclaimer">*Estimates based on projected automation efficiency for service-based operations. Actual results will vary by workflow complexity and business type.</p>
-          <a href="contact.html" class="btn-primary full-width"
-            style="margin-top:28px; text-align:center; display:block;">Book a Free Consultation →</a>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <!-- LAUNCH ROADMAP -->
   <section class="section" id="roadmap">
@@ -585,7 +855,8 @@
       <p class="reveal section-text" style="max-width: 500px; margin-left: auto; margin-right: auto;">
         Join the list and I'll send you one email about how AI agents are being used in businesses like yours.
       </p>
-      <form class="waitlist-form reveal" id="waitlistFormLg" name="waitlist-section" style="max-width: 480px; margin: 0 auto;">
+      <form class="waitlist-form reveal" id="waitlistFormLg" name="waitlist-section" method="POST" data-netlify="true" netlify-honeypot="_honey" action="thank-you.html" style="max-width: 480px; margin: 0 auto;">
+        <input type="hidden" name="form-name" value="waitlist-section" />
         <input type="text" name="_honey" style="display:none;" tabindex="-1" autocomplete="off" />
         <input type="email" name="email" placeholder="Work Email Address" required />
         <button type="submit" class="btn-primary" id="reserveBtn">Send Me Info →</button>
@@ -601,6 +872,8 @@
       <p class="footer-tag">Custom AI agents built to automate your business operations.</p>
       <div class="footer-links">
         <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="ai-agents.html">AI Agents</a>
         <a href="index.html#how">How It Works</a>
         <a href="pricing.html">Pricing</a>
         <a href="index.html#faq">FAQ</a>
@@ -616,6 +889,30 @@
   </footer>
 
   <script src="AVEOL.js"></script>
+
+  <!-- FLOATING ACTION BUTTON -->
+  <a href="javascript:void(0)" class="fab-btn" id="fabBtn">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+  </a>
+
+
+  <!-- AI CHAT WIDGET -->
+  <div class="ai-chat-widget" id="aiChatWidget">
+    <div class="ai-chat-header">
+      <div class="ai-chat-title">
+        <div class="ai-status-dot"></div>
+        AVEOL Concierge
+      </div>
+      <button class="ai-chat-close" id="aiChatClose">&#x2715;</button>
+    </div>
+    <div class="ai-chat-body" id="aiChatBody">
+      <!-- Chat messages will be injected here via JS -->
+    </div>
+    <div class="ai-chat-options" id="aiChatOptions">
+      <!-- Options injected via JS -->
+    </div>
+  </div>
+
 </body>
 
 </html>

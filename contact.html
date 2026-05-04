@@ -351,27 +351,29 @@
     <canvas id="particles"></canvas>
 
     <nav id="navbar">
-        <a href="index.html" class="logo">AVEOL</a>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="index.html#services">Services</a>
-            <a href="pricing.html">Pricing</a>
-            <a href="contact.html" class="active">Contact</a>
-        </div>
-        <a href="contact.html" class="nav-cta">Book a Free Consultation</a>
-        <button class="hamburger" id="hamburger" aria-label="Open menu">&#9776;</button>
-    </nav>
+    <a href="index.html" class="logo">AVEOL</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="ai-agents.html">AI Agents</a>
+      <a href="index.html#services">Custom Engineering</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Book a Free Consultation</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">&#9776;</button>
+  </nav>
 
     <div class="mobile-menu" id="mobileMenu">
-        <button class="close-menu" id="closeMenu">&#x2715;</button>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="index.html#services">Services</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="contact.html">Contact</a>
-        <a href="contact.html" class="btn-primary" style="margin-top:24px;">Book a Free Consultation</a>
-    </div>
+    <button class="close-menu" id="closeMenu">&#x2715;</button>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="ai-agents.html">AI Agents</a>
+    <a href="index.html#services">Custom Engineering</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn-primary" style="margin-top:24px;">Book a Free Consultation</a>
+  </div>
 
     <!-- HERO -->
     <div class="audit-hero reveal">
@@ -704,8 +706,21 @@
         document.getElementById('back-2').addEventListener('click', () => showStep(1));
         document.getElementById('back-3').addEventListener('click', () => showStep(2));
 
+        // Prevent accidental form submission on Enter key (critical UX fix)
+        const auditForm = document.getElementById('auditForm');
+        if (auditForm) {
+            auditForm.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+                    e.preventDefault();
+                    if (currentStep === 1) document.getElementById('next-1').click();
+                    else if (currentStep === 2) document.getElementById('next-2').click();
+                    else if (currentStep === 3) document.getElementById('submitBtn').click();
+                }
+            });
+        }
+
         // Final submit
-        document.getElementById('auditForm').addEventListener('submit', async function (e) {
+        auditForm.addEventListener('submit', async function (e) {
             e.preventDefault();
             const btn = document.getElementById('submitBtn');
             const status = document.getElementById('auditStatus');
@@ -796,10 +811,28 @@
         }
         
         // ══════════════════════════════════════════════
-        //  QUICK CONTACT FORM LOGIC
+        //  QUICK CONTACT FORM LOGIC & AUTO-FILL
         // ══════════════════════════════════════════════
         const quickForm = document.querySelector('.contact-quick-form');
         if (quickForm) {
+            // Check for ?agent= parameter to pre-fill the message
+            const urlParams = new URLSearchParams(window.location.search);
+            const agentParam = urlParams.get('agent');
+            if (agentParam) {
+                const messageField = document.getElementById('contactMessage');
+                const agentNames = {
+                    'customer-support': 'Customer Support AI Agent',
+                    'data-entry': 'Data Entry Automation AI',
+                    'lead-qualification': 'Lead Qualification AI'
+                };
+                const formattedName = agentNames[agentParam] || agentParam.replace(/-/g, ' ');
+                if (messageField) {
+                    messageField.value = `Hi AVEOL, I'm interested in implementing the ${formattedName} for my business. Can we discuss how this would work?`;
+                    // Optional: scroll to form if param exists
+                    document.querySelector('.contact-quick-wrap').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+
             quickForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 const btn = quickForm.querySelector('button[type="submit"]');

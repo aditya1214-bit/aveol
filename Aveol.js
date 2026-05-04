@@ -607,3 +607,225 @@ btt.addEventListener('click', () => {
 })();
 
 console.log("AVEOL — Autonomous Intelligence. Infinite Scale.");
+
+// ═══════════════════════════════════════════════════
+//  AI AGENT DEMO TOGGLE (Show/Hide Workflow)
+// ═══════════════════════════════════════════════════
+document.querySelectorAll('.toggle-demo-btn').forEach(btn => {
+  btn.addEventListener('click', function () {
+    const card        = this.closest('.ai-agent-card');
+    const demoSection = card.querySelector('.agent-demo-section');
+    const isOpen      = demoSection.classList.contains('open');
+
+    demoSection.classList.toggle('open', !isOpen);
+    this.classList.toggle('open', !isOpen);
+
+    // Lazy-load video on first expand to fix preload="none" deadlock
+    if (!isOpen) {
+      const video = demoSection.querySelector('.agent-video');
+      if (video && video.getAttribute('preload') === 'none') {
+        video.setAttribute('preload', 'metadata');
+        video.load();
+      }
+    }
+
+    // Reset any stale inline styles from previous version
+    this.style.background = '';
+    this.style.color      = '';
+  });
+});
+
+// ═══════════════════════════════════════════════════
+//  AGENT VIDEO FALLBACK
+//  • If the mp4 file loads → show video, hide placeholder.
+//  • If the mp4 file is missing (error) → keep placeholder.
+// ═══════════════════════════════════════════════════
+document.querySelectorAll('.agent-video-wrap').forEach(wrap => {
+  const video  = wrap.querySelector('.agent-video');
+  const source = video ? video.querySelector('source') : null;
+  if (!video || !source) return;
+
+  // Video has enough data to play — switch to video view
+  video.addEventListener('loadeddata', () => {
+    wrap.classList.add('video-loaded');
+  });
+
+  // Source failed to load (file missing or network error)
+  source.addEventListener('error', () => {
+    wrap.classList.remove('video-loaded');
+  });
+});
+
+// ═══════════════════════════════════════════════════
+//  AGENT TABS FILTER
+// ═══════════════════════════════════════════════════
+document.querySelectorAll('.agent-tab').forEach(tab => {
+  tab.addEventListener('click', function() {
+    // Update active tab styling
+    document.querySelectorAll('.agent-tab').forEach(t => t.classList.remove('active'));
+    this.classList.add('active');
+
+    const filter = this.getAttribute('data-filter');
+    const cards = document.querySelectorAll('.ai-agent-card');
+
+    cards.forEach(card => {
+      if (filter === 'all' || card.getAttribute('data-category') === filter) {
+        card.classList.remove('hidden');
+        // Reset animation by removing and re-adding class
+        card.style.animation = 'none';
+        card.offsetHeight; // trigger reflow
+        card.style.animation = '';
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
+});
+
+
+// ══════════════════════════════════════════════
+//  AI CONCIERGE CHAT WIDGET
+// ══════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', () => {
+    const fabBtns = document.querySelectorAll('#fabBtn');
+    const chatWidget = document.getElementById('aiChatWidget');
+    const chatClose = document.getElementById('aiChatClose');
+    const chatBody = document.getElementById('aiChatBody');
+    const chatOptions = document.getElementById('aiChatOptions');
+    
+    if (!chatWidget) return;
+
+    let hasOpened = false;
+
+    // Toggle Chat
+    fabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            chatWidget.classList.toggle('active');
+            if (chatWidget.classList.contains('active') && !hasOpened) {
+                hasOpened = true;
+                startConversation();
+            }
+        });
+    });
+
+    chatClose.addEventListener('click', () => {
+        chatWidget.classList.remove('active');
+    });
+
+    function addBotMessage(text) {
+        const msg = document.createElement('div');
+        msg.className = 'ai-msg bot';
+        msg.innerHTML = text;
+        chatBody.appendChild(msg);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function addUserMessage(text) {
+        const msg = document.createElement('div');
+        msg.className = 'ai-msg user';
+        msg.innerText = text;
+        chatBody.appendChild(msg);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function showTyping() {
+        const typing = document.createElement('div');
+        typing.className = 'ai-msg bot typing-indicator';
+        typing.innerHTML = '<div class="ai-typing"><span></span><span></span><span></span></div>';
+        chatBody.appendChild(typing);
+        chatBody.scrollTop = chatBody.scrollHeight;
+        return typing;
+    }
+
+    function clearOptions() {
+        chatOptions.innerHTML = '';
+    }
+
+    function setOptions(options) {
+        clearOptions();
+        options.forEach(opt => {
+            const btn = document.createElement('button');
+            btn.className = 'ai-chat-btn';
+            btn.innerText = opt.text;
+            btn.onclick = () => {
+                clearOptions();
+                addUserMessage(opt.text);
+                setTimeout(() => opt.action(), 500);
+            };
+            chatOptions.appendChild(btn);
+        });
+    }
+
+    // Conversation Flow
+    function startConversation() {
+        const typing = showTyping();
+        setTimeout(() => {
+            typing.remove();
+            addBotMessage("Hi there! 👋 I'm AVEOL's AI Concierge.");
+            
+            setTimeout(() => {
+                const type2 = showTyping();
+                setTimeout(() => {
+                    type2.remove();
+                    addBotMessage("I can help you explore how automation fits into your business. What are you looking to do today?");
+                    
+                    setOptions([
+                        { text: "I want to automate repetitive tasks", action: flowTasks },
+                        { text: "I need a custom AI agent built", action: flowCustom },
+                        { text: "Just browsing your services", action: flowBrowse }
+                    ]);
+                }, 1000);
+            }, 500);
+            
+        }, 800);
+    }
+
+    function flowTasks() {
+        const typing = showTyping();
+        setTimeout(() => {
+            typing.remove();
+            addBotMessage("Smart choice. On average, we save our clients over 20 hours a week by automating data entry, outreach, and reporting.");
+            setTimeout(() => {
+                addBotMessage("Would you like to book a free 30-minute workflow audit with our engineering team?");
+                setOptions([
+                    { text: "Yes, book a free audit", action: () => window.location.href = "contact.html" },
+                    { text: "Not right now", action: flowEnd }
+                ]);
+            }, 1000);
+        }, 1200);
+    }
+
+    function flowCustom() {
+        const typing = showTyping();
+        setTimeout(() => {
+            typing.remove();
+            addBotMessage("We specialize in custom engineering. We build bespoke AI systems that integrate directly into your existing software stack (Slack, CRM, etc).");
+            setTimeout(() => {
+                setOptions([
+                    { text: "See pricing", action: () => window.location.href = "pricing.html" },
+                    { text: "Let's discuss my project", action: () => window.location.href = "contact.html" }
+                ]);
+            }, 800);
+        }, 1200);
+    }
+
+    function flowBrowse() {
+        const typing = showTyping();
+        setTimeout(() => {
+            typing.remove();
+            addBotMessage("Take your time! Feel free to check out our pre-built AI Agent templates. If you have any questions, I'm right here.");
+            setOptions([
+                { text: "View AI Agents catalog", action: () => window.location.href = "ai-agents.html" }
+            ]);
+        }, 1000);
+    }
+
+    function flowEnd() {
+        const typing = showTyping();
+        setTimeout(() => {
+            typing.remove();
+            addBotMessage("No problem. Feel free to reach out to rajaditya81156@gmail.com if anything comes up!");
+            clearOptions();
+        }, 1000);
+    }
+});
